@@ -1,0 +1,70 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
+from loguru import logger
+
+from exceptions.product import ProductUnavailable
+
+
+def check_for_reload(driver: webdriver.Chrome) -> None:
+    alerts = driver.find_elements(By.CLASS_NAME, 'a-alert')
+
+    for alert in alerts:
+        if 'reload' in alert.get_attribute('innerText').lower():
+            driver.reload()
+            check_for_reload()
+
+    return
+
+
+def check_for_captcha(driver: webdriver.Chrome) -> bool:
+    pass
+
+
+def solve_captcha(driver: webdriver.Chrome) -> bool:
+    pass
+
+
+def get_product_information(driver: webdriver.Chrome, product_link: str) -> dict[str, str]:
+    
+    try:
+        driver.get(product_link)
+    except:
+        ProductUnavailable(product_link)
+
+    if check_for_captcha:
+        solve_captcha(driver)
+
+    check_for_reload(driver)
+
+    try:
+        product_div = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located(
+                (By.ID, 'ppd')
+            )
+        )
+    except TimeoutException:
+        raise ProductUnavailable(product_link)
+
+    try:
+        price_table = product_div.find_element(By.TAG_NAME, 'table')
+        rows = price_table.find_elements(By.TAG_NAME, 'tr')
+
+        mrp_row = rows[0]
+        sp_row = rows[1]
+
+        mrp = float(mrp_row.find_element(By.CLASS_NAME, 'a-offscreen').get_attribute('innerText').strip().strip('₹').replace(',', ''))
+        sp = float(sp_row.find_element(By.CLASS_NAME, 'a-offscreen').get_attribute('innerText').strip().strip('₹').replace(',', ''))
+
+        seller = driver.find_elements(By.CLASS_NAME, 'tabular-buybox-text')[-1].get_attribute('innerText').strip()
+
+        return {
+            'mrp': mrp,
+            'sp': sp,
+            'seller': seller
+        }
+    
+    except Exception as e:
+        raise ProductUnavailable(product_link)
