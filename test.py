@@ -1,6 +1,7 @@
 import utils.config as _
 
 from loguru import logger
+from pyvirtualdisplay import Display
 
 from utils.selenium_utils import get_chromedriver_without_proxy
 from portals.amazon import get_product_information as get_amazon_product_information
@@ -12,8 +13,15 @@ from utils.sheets import get_amazon_data, get_flipcart_data, get_1mg_data, get_n
 from utils.mail import send_output_mail, send_error_mail
 from exceptions.product import ProductUnavailable
 
+
+
+
+
 if __name__ == '__main__':
     logger.info('starting script')
+
+    display = Display(visible=0, size=(800, 600))
+    display.start()
     
     driver = get_chromedriver_without_proxy()
 
@@ -33,7 +41,7 @@ if __name__ == '__main__':
         hyugalife_data = get_hyugalife_data()[:5]
     except Exception as e:
         logger.error(e)
-        send_error_mail('Error while loading data from google sheet')
+        # send_error_mail('Error while loading data from google sheet')
         exit()
 
     logger.info('scraping amazon data')
@@ -65,7 +73,7 @@ if __name__ == '__main__':
             })
         except KeyError:
             logger.error('Amazon data structure has been changed')
-            send_error_mail('Amazon sheet data structure has been changed')
+            # send_error_mail('Amazon sheet data structure has been changed')
             exit()
         
     logger.info('scraping flipcart data')
@@ -92,7 +100,7 @@ if __name__ == '__main__':
             })
         except KeyError:
             logger.error('Flipcart data structure has been changed')
-            send_error_mail('Flipcart sheet data structure has been changed')
+            # send_error_mail('Flipcart sheet data structure has been changed')
             exit()
 
     logger.info('scraping 1mg data')
@@ -118,7 +126,7 @@ if __name__ == '__main__':
             })
         except KeyError:
             logger.error('1mg data structure has been changed')
-            send_error_mail('1mg sheet data structure has been changed')
+            # send_error_mail('1mg sheet data structure has been changed')
             exit()
     
     logger.info('scraping nykaa data')
@@ -144,7 +152,7 @@ if __name__ == '__main__':
             })
         except KeyError:
             logger.error('Nykaa data structure has been changed')
-            send_error_mail('Nykaa sheet data structure has been changed')
+            # send_error_mail('Nykaa sheet data structure has been changed')
             exit()
     
     logger.info('scraping hyugalife data')
@@ -170,7 +178,7 @@ if __name__ == '__main__':
             })
         except KeyError:
             logger.error('Hyugalife data structure has been changed')
-            send_error_mail('Hyugalife sheet data structure has been changed')
+            # send_error_mail('Hyugalife sheet data structure has been changed')
             exit()
         
     driver.close()
@@ -181,6 +189,8 @@ if __name__ == '__main__':
 
     logger.info('compilation complete, emailing...')
 
-    send_output_mail()
+    # send_output_mail()
+
+    display.stop()
 
     logger.info('script has run to completion!')
