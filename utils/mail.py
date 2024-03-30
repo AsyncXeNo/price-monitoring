@@ -1,10 +1,30 @@
+import datetime
 import os
-from datetime import datetime, timedelta
+import base64
+import mimetypes
 
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.base import MIMEBase
+from email import encoders
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
+from loguru import logger
+
+
+sender_email = 'dev.kartikaggarwal117@gmail.com'
+
+target_email_list = [
+    'dev.kartikaggarwal117@gmail.com',
+    'kartik.aggarwal117@gmail.com',
+    'ecom6@novuslifesciences.com',
+    'ecom7@novuslifesciences.com',
+    'ecom1@novuslifesciences.com',
+    'ecom13@novuslifesciences.com',
+    'gp385849@gmail.com'
+]
 
 
 def get_credentials():
@@ -26,4 +46,63 @@ def get_credentials():
     return creds
 
 
-print(get_credentials().expiry)
+def send_email(sender, to_list, subject, message_text, file_paths=[]):
+    creds = get_credentials()
+    service = build('gmail', 'v1', credentials=creds)
+    
+    message = create_message(sender, to_list, subject, message_text, file_paths)
+    
+    try:
+        message = (service.users().messages().send(userId='me', body=message)
+                   .execute())
+        logger.debug('Email has been sent successfully')
+        return message
+    except Exception as e:
+        logger.error(f'An error occurred while sending out email: {e}')
+        return None
+
+
+def create_message(sender, to_list, subject, message_text, file_paths=[]):
+    message = MIMEMultipart()
+    message['from'] = sender
+    message['to'] = ', '.join(to_list)
+    message['subject'] = subject
+
+    msg = MIMEText(message_text)
+    message.attach(msg)
+
+    for file_path in file_paths:
+        content_type, encoding = mimetypes.guess_type(file_path)
+        if content_type is None or encoding is not None:
+            content_type = 'application/octet-stream'
+        main_type, sub_type = content_type.split('/', 1)
+        with open(file_path, 'rb') as file:
+            part = MIMEBase(main_type, sub_type)
+            part.set_payload(file.read())
+        encoders.encode_base64(part)
+        part.add_header('Content-Disposition', 'attachment', filename=file_path.split('/')[-1])
+        message.attach(part)
+
+    raw_message = base64.urlsafe_b64encode(message.as_bytes())
+    raw_message = raw_message.decode()
+    return {'raw': raw_message}
+
+
+def send_output_mail():
+    current_date = datetime.datetime.now()
+    formatted_date = current_date.strftime("%d %B")
+    send_email(sender_email, 
+               target_email_list, 
+               f'{formatted_date} - Price sheet', 
+               'THIS EMAIL HAS BEEN AUTOMATICALLY GENERATED!\n\nThis email is part of a TEST.\n\nPlease find the Price Sheet and Script Logs attached.', 
+               ['data/output.xlsx', 'logs/script.log'])
+
+
+def send_error_mail(error):
+    current_date = datetime.datetime.now()
+    formatted_date = current_date.strftime("%d %B")
+    send_email(sender_email, 
+               target_email_list, 
+               f'{formatted_date} - Error while running script', 
+               f'THIS EMAIL HAS BEEN AUTOMATICALLY GENERATED!\n\nA critical error has occured while running the script: "{error}".\nA copy of this email has been sent to the developer.\nPlease contact the developer for further information.\nScript logs have been attached.', 
+               ['logs/script.log'])

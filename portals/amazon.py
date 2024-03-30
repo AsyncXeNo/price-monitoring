@@ -31,7 +31,7 @@ def get_product_information(driver: webdriver.Chrome, product_link: str) -> dict
     
     try:
         driver.get(product_link)
-    except:
+    except Exception:
         ProductUnavailable(product_link)
 
     if check_for_captcha:
@@ -59,12 +59,26 @@ def get_product_information(driver: webdriver.Chrome, product_link: str) -> dict
         sp = float(sp_row.find_element(By.CLASS_NAME, 'a-offscreen').get_attribute('innerText').strip().strip('₹').replace(',', ''))
 
         seller = driver.find_elements(By.CLASS_NAME, 'tabular-buybox-text')[-1].get_attribute('innerText').strip()
-
+        
         return {
             'mrp': mrp,
             'sp': sp,
             'seller': seller
         }
     
-    except Exception as e:
-        raise ProductUnavailable(product_link)
+    except Exception:
+        try:
+            center_col = product_div.find_element(By.ID, 'centerCol')
+            sp = float(center_col.find_element(By.CLASS_NAME, 'a-price-whole').get_attribute('innerText').strip().strip('₹').replace(',', ''))
+            mrp = float(center_col.find_elements(By.CSS_SELECTOR, '#centerCol .a-text-price .a-offscreen')[-1].get_attribute('innerText').strip().strip('₹').replace(',', ''))
+
+            seller = driver.find_elements(By.CLASS_NAME, 'tabular-buybox-text')[-1].get_attribute('innerText').strip()
+            
+            return {
+                'mrp': mrp,
+                'sp': sp,
+                'seller': seller
+            }
+        
+        except Exception:
+            raise ProductUnavailable(product_link)

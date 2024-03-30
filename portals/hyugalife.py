@@ -13,7 +13,7 @@ from exceptions.product import ProductUnavailable
 def get_product_information(driver:webdriver.Chrome, product_link: str) -> dict[str, str]:
     try:
         driver.get(product_link)
-    except:
+    except Exception:
         ProductUnavailable(product_link)
 
     try:
@@ -25,5 +25,5 @@ def get_product_information(driver:webdriver.Chrome, product_link: str) -> dict[
             'sp': sp
         }
     
-    except:
+    except Exception:
         raise ProductUnavailable(product_link)

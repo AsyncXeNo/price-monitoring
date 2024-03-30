@@ -11,17 +11,20 @@ from exceptions.product import ProductUnavailable
 def get_product_information(driver: webdriver.Chrome, product_link: str) -> dict[str, str]:
     try:
         driver.get(product_link)
-    except:
+    except Exception:
         ProductUnavailable(product_link)
 
     try:
         sp = float(driver.find_element(By.CLASS_NAME, 'PriceBoxPlanOption__offer-price___3v9x8').get_attribute('innerText').strip().strip('₹').replace(',', ''))
-        mrp = float(driver.find_element(By.CLASS_NAME, 'PriceBoxPlanOption__margin-right-4___2aqFt').get_attribute('innerText').strip().strip('₹').replace(',', ''))
+        try:
+            mrp = float(driver.find_element(By.CLASS_NAME, 'PriceBoxPlanOption__margin-right-4___2aqFt').get_attribute('innerText').strip().strip('₹').replace(',', ''))
+        except Exception:
+            mrp = 'NA'
 
         return {
             'mrp': mrp,
             'sp': sp
         }
     
-    except:
+    except Exception:
         raise ProductUnavailable(product_link)

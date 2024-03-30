@@ -1,3 +1,4 @@
+import time
 import utils.config as _
 
 from loguru import logger
@@ -9,7 +10,9 @@ from portals.one_mg import get_product_information as get_one_mg_product_informa
 from portals.nykaa import get_product_information as get_nykaa_product_information
 from portals.hyugalife import get_product_information as get_hyugalife_product_information
 from utils.sheets import get_amazon_data, get_flipcart_data, get_1mg_data, get_nykaa_data, get_hyugalife_data, compile_data
+from utils.mail import send_output_mail, send_error_mail
 from exceptions.product import ProductUnavailable
+
 
 if __name__ == '__main__':
     logger.info('starting script')
@@ -32,7 +35,8 @@ if __name__ == '__main__':
         hyugalife_data = get_hyugalife_data()
     except Exception as e:
         logger.error(e)
-        #TODO: send error mail to my email addresses
+        send_error_mail('Error while loading data from google sheet')
+        exit()
 
     logger.info('scraping amazon data')
     for entry in amazon_data:
@@ -42,8 +46,8 @@ if __name__ == '__main__':
             source_MRP = float(entry['source_MRP'])
             source_SP = float(entry['source_SP'])
             Url = str(entry['Url'])
-            if (Url.strip() == ''): 
-                logger.earning(f'skipping amazon product, ASIN: {ASIN}')
+            if ('http' not in Url.strip().lower()): 
+                logger.warning(f'skipping amazon product, ASIN: {ASIN}')
                 continue
             try:
                 scraped = get_amazon_product_information(driver, Url)
@@ -61,11 +65,10 @@ if __name__ == '__main__':
                 'seller': scraped['seller'],
                 'Url': Url
             })
-        except KeyError as e:
-            print(e)
+        except KeyError:
             logger.error('Amazon data structure has been changed')
-            break
-            #TODO: send error mmail to my email addresses
+            send_error_mail('Amazon sheet data structure has been changed')
+            exit()
         
     logger.info('scraping flipcart data')
     for entry in flipcart_data:
@@ -89,11 +92,10 @@ if __name__ == '__main__':
                 'seller': scraped['seller'],
                 'Url': Url
             })
-        except KeyError as e:
-            print(e)
+        except KeyError:
             logger.error('Flipcart data structure has been changed')
-            break
-            #TODO: send error mmail to my email addresses
+            send_error_mail('Flipcart sheet data structure has been changed')
+            exit()
 
     logger.info('scraping 1mg data')
     for entry in one_mg_data:
@@ -116,10 +118,11 @@ if __name__ == '__main__':
                 'scraped_SP': scraped['sp'],
                 'Url': Url
             })
+            time.sleep(2)
         except KeyError:
             logger.error('1mg data structure has been changed')
-            break
-            #TODO: send error mmail to my email addresses
+            send_error_mail('1mg sheet data structure has been changed')
+            exit()
     
     logger.info('scraping nykaa data')
     for entry in nykaa_data:
@@ -144,8 +147,8 @@ if __name__ == '__main__':
             })
         except KeyError:
             logger.error('Nykaa data structure has been changed')
-            break
-            #TODO: send error mmail to my email addresses
+            send_error_mail('Nykaa sheet data structure has been changed')
+            exit()
     
     logger.info('scraping hyugalife data')
     for entry in hyugalife_data:
@@ -170,8 +173,8 @@ if __name__ == '__main__':
             })
         except KeyError:
             logger.error('Hyugalife data structure has been changed')
-            break
-            #TODO: send error mmail to my email addresses
+            send_error_mail('Hyugalife sheet data structure has been changed')
+            exit()
         
     driver.close()
 
@@ -181,6 +184,6 @@ if __name__ == '__main__':
 
     logger.info('compilation complete, emailing...')
 
-    #TODO: email data
+    send_output_mail()
 
     logger.info('script has run to completion!')

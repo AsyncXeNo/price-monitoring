@@ -22,27 +22,29 @@ def _driver_wrapper(f):
     return wrapper
 
 
-# def _get_chrome_options():
-#     chrome_options = webdriver.ChromeOptions()
-#     ua = UserAgent()
+def _get_chrome_options():
+    chrome_options = uc.ChromeOptions()
+    # ua = UserAgent()
 
-#     # chrome_options.add_argument(f'--user-agent={ua.random}')
-#     chrome_options.add_argument("--disable-blink-features=AutomationControlled") 
-#     # chrome_options.add_argument("--disable-infobars")
-#     # chrome_options.add_argument("--disable-save-password-bubble")
+    # chrome_options.add_argument(f'--user-agent={ua.random}')
+    # chrome_options.add_argument("--disable-blink-features=AutomationControlled") 
+    # chrome_options.add_argument("--disable-infobars")
+    # chrome_options.add_argument("--disable-save-password-bubble")
 
-#     chrome_options.add_argument("--headless=new")
+    # chrome_options.add_argument("--headless=new")
 
-#     chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"]) 
-#     chrome_options.add_experimental_option("useAutomationExtension", False) 
+    # chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"]) 
+    # chrome_options.add_experimental_option("useAutomationExtension", False) 
 
-#     return chrome_options
+    chrome_options.add_experimental_option( "prefs",{'profile.managed_default_content_settings.javascript': 2})
+
+    return chrome_options
 
 
 @_driver_wrapper
 def get_chromedriver_without_proxy() -> uc.Chrome:
-    # chrome_options = _get_chrome_options()
-    driver = uc.Chrome()
+    chrome_options = _get_chrome_options()
+    driver = uc.Chrome(options=chrome_options)
     return driver
 
 
