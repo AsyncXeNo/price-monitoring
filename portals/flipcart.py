@@ -15,7 +15,11 @@ def get_product_information(driver: webdriver.Chrome, product_link: str) -> dict
         ProductUnavailable(product_link)
 
     try:
-        sp = float(driver.find_element(By.CSS_SELECTOR, '._30jeq3._16Jk6d').get_attribute('innerText').strip().strip('₹').replace(',', ''))
+        sp = float(WebDriverWait(driver, 1).until(
+            EC.presence_of_element_located(
+                (By.CSS_SELECTOR, '._30jeq3._16Jk6d')
+            )
+        ).get_attribute('innerText').strip().strip('₹').replace(',', ''))
         try:
             mrp = float(driver.find_element(By.CSS_SELECTOR, '._3I9_wc._2p6lqe').get_attribute('innerText').strip().strip('₹').replace(',', ''))
         except Exception: 

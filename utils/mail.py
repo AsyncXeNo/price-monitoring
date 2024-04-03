@@ -19,11 +19,13 @@ sender_email = 'dev.kartikaggarwal117@gmail.com'
 target_email_list = [
     'dev.kartikaggarwal117@gmail.com',
     'kartik.aggarwal117@gmail.com',
+    'ecom4@novuslifesciences.com',
     'ecom6@novuslifesciences.com',
     'ecom7@novuslifesciences.com',
     'ecom1@novuslifesciences.com',
     'ecom13@novuslifesciences.com',
-    'gp385849@gmail.com'
+    'ecom12@novuslifesciences.com',
+    'ecom9@novuslifesciences.com'
 ]
 
 
@@ -94,7 +96,7 @@ def send_output_mail():
     send_email(sender_email, 
                target_email_list, 
                f'{formatted_date} - Price sheet', 
-               'THIS EMAIL HAS BEEN AUTOMATICALLY GENERATED!\n\nThis email is part of a TEST.\n\nPlease find the Price Sheet and Script Logs attached.', 
+               'THIS EMAIL HAS BEEN AUTOMATICALLY GENERATED!\n\nPlease find the Price Sheet and Script Logs attached.', 
                ['data/output.xlsx', 'logs/script.log'])
 
 

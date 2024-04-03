@@ -1,8 +1,11 @@
+#!venv/bin/python3
+
 import time
 import utils.config as _
 
 from loguru import logger
 
+from pyvirtualdisplay import Display
 from utils.selenium_utils import get_chromedriver_without_proxy
 from portals.amazon import get_product_information as get_amazon_product_information
 from portals.flipcart import get_product_information as get_flipcart_product_information
@@ -10,12 +13,17 @@ from portals.one_mg import get_product_information as get_one_mg_product_informa
 from portals.nykaa import get_product_information as get_nykaa_product_information
 from portals.hyugalife import get_product_information as get_hyugalife_product_information
 from utils.sheets import get_amazon_data, get_flipcart_data, get_1mg_data, get_nykaa_data, get_hyugalife_data, compile_data
-from utils.mail import send_output_mail, send_error_mail
+from utils.mail import send_output_mail, send_error_mail, send_email
 from exceptions.product import ProductUnavailable
 
 
 if __name__ == '__main__':
     logger.info('starting script')
+
+    send_email('dev.kartikaggarwal117@gmail.com', ['dev.kartikaggarwal117@gmail.com'], 'Pricemon Execute', 'Script has started execution!', [])
+
+    disp = Display()
+    disp.start()
     
     driver = get_chromedriver_without_proxy()
 
@@ -70,7 +78,7 @@ if __name__ == '__main__':
             send_error_mail('Amazon sheet data structure has been changed')
             exit()
         
-    logger.info('scraping flipcart data')
+    logger.info('scraping flipkart data')
     for entry in flipcart_data:
         try:
             Id = entry['Id']
@@ -79,10 +87,10 @@ if __name__ == '__main__':
             Url = str(entry['Url'])
             try:
                 scraped = get_flipcart_product_information(driver, Url)
-                logger.debug(f'scraped flipcart product: {Url}')
+                logger.debug(f'scraped flipkart product: {Url}')
             except ProductUnavailable:
                 scraped = {'mrp': 'NA', 'sp': 'NA', 'seller': 'NA'}
-                logger.error(f'flipcart product not found: {Url}')
+                logger.error(f'flipkart product not found: {Url}')
             flipcart_output.append({
                 'Id': Id,
                 'source_MRP': source_MRP,
@@ -93,8 +101,8 @@ if __name__ == '__main__':
                 'Url': Url
             })
         except KeyError:
-            logger.error('Flipcart data structure has been changed')
-            send_error_mail('Flipcart sheet data structure has been changed')
+            logger.error('Flipkart data structure has been changed')
+            send_error_mail('Flipkart sheet data structure has been changed')
             exit()
 
     logger.info('scraping 1mg data')
@@ -177,6 +185,8 @@ if __name__ == '__main__':
             exit()
         
     driver.close()
+
+    disp.stop()
 
     logger.info('data scraping complete, compiling...')
         

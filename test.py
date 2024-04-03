@@ -1,8 +1,10 @@
+#!venv/bin/python3
+
 import utils.config as _
 
 from loguru import logger
-from pyvirtualdisplay import Display
 
+from pyvirtualdisplay import Display
 from utils.selenium_utils import get_chromedriver_without_proxy
 from portals.amazon import get_product_information as get_amazon_product_information
 from portals.flipcart import get_product_information as get_flipcart_product_information
@@ -13,15 +15,11 @@ from utils.sheets import get_amazon_data, get_flipcart_data, get_1mg_data, get_n
 from utils.mail import send_output_mail, send_error_mail
 from exceptions.product import ProductUnavailable
 
-
-
-
-
 if __name__ == '__main__':
     logger.info('starting script')
 
-    display = Display(visible=0, size=(800, 600))
-    display.start()
+    disp = Display()
+    disp.start()
     
     driver = get_chromedriver_without_proxy()
 
@@ -99,7 +97,7 @@ if __name__ == '__main__':
                 'Url': Url
             })
         except KeyError:
-            logger.error('Flipcart data structure has been changed')
+            logger.error('Flipkart data structure has been changed')
             # send_error_mail('Flipcart sheet data structure has been changed')
             exit()
 
@@ -183,6 +181,8 @@ if __name__ == '__main__':
         
     driver.close()
 
+    disp.stop()
+
     logger.info('data scraping complete, compiling...')
         
     compile_data(amazon_output, flipcart_output, one_mg_output, nykaa_output, hyugalife_output)
@@ -190,7 +190,5 @@ if __name__ == '__main__':
     logger.info('compilation complete, emailing...')
 
     # send_output_mail()
-
-    display.stop()
 
     logger.info('script has run to completion!')
