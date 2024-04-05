@@ -26,7 +26,7 @@ def _get_chrome_options():
     chrome_options = uc.ChromeOptions()
     # ua = UserAgent()
 
-    # chrome_options.add_argument(f'--user-agent={ua.random}')
+    chrome_options.add_argument('--user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Safari/605.1.15')
     # chrome_options.add_argument("--disable-blink-features=AutomationControlled") 
     # chrome_options.add_argument("--disable-infobars")
     # chrome_options.add_argument("--disable-save-password-bubble")
