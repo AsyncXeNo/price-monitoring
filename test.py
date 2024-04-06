@@ -25,8 +25,8 @@ PASS = '125h0s4vd7nh'
 if __name__ == '__main__':
     logger.info('starting script')
 
-    # disp = Display()
-    # disp.start()
+    disp = Display()
+    disp.start()
     
     driver = get_chromedriver_without_proxy()
     
@@ -199,7 +199,7 @@ if __name__ == '__main__':
         
     driver.close()
 
-    # disp.stop()
+    disp.stop()
 
     logger.info('data scraping complete, compiling...')
         
