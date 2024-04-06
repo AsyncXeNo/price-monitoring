@@ -16,8 +16,8 @@
     function callbackFn(details) {
         return {
             authCredentials: {
-                username: "brd-customer-hl_8805587a-zone-pricemon_real-session-exedx",
-                password: "5ebx5y4skrmd"
+                username: "brd-customer-hl_8805587a-zone-pricemon_willthiswork",
+                password: "125h0s4vd7nh"
             }
         };
     }

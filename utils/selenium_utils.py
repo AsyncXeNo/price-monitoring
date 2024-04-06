@@ -1,3 +1,4 @@
+import os
 import zipfile
 
 # from selenium import webdriver
@@ -26,7 +27,7 @@ def _get_chrome_options():
     chrome_options = uc.ChromeOptions()
     # ua = UserAgent()
 
-    chrome_options.add_argument('--user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Safari/605.1.15')
+    # chrome_options.add_argument('--user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Safari/605.1.15')
     # chrome_options.add_argument("--disable-blink-features=AutomationControlled") 
     # chrome_options.add_argument("--disable-infobars")
     # chrome_options.add_argument("--disable-save-password-bubble")
@@ -49,70 +50,81 @@ def get_chromedriver_without_proxy() -> uc.Chrome:
     return driver
 
 
-# @_driver_wrapper
-# def get_chromedriver_with_proxy(host: str, port: str, user: str, password: str) -> webdriver.Chrome:
-#     manifest_json = """
-#     {
-#         "version": "1.0.0",
-#         "manifest_version": 2,
-#         "name": "Chrome Proxy",
-#         "permissions": [
-#             "proxy",
-#             "tabs",
-#             "unlimitedStorage",
-#             "storage",
-#             "<all_urls>",
-#             "webRequest",
-#             "webRequestBlocking"
-#         ],
-#         "background": {
-#             "scripts": ["background.js"]
-#         },
-#         "minimum_chrome_version":"22.0.0"
-#     }
-#     """
+@_driver_wrapper
+def get_chromedriver_with_proxy(host: str, port: str, user: str, password: str):
+    manifest_json = """
+    {
+        "version": "1.0.0",
+        "manifest_version": 2,
+        "name": "Chrome Proxy",
+        "permissions": [
+            "proxy",
+            "tabs",
+            "unlimitedStorage",
+            "storage",
+            "<all_urls>",
+            "webRequest",
+            "webRequestBlocking"
+        ],
+        "background": {
+            "scripts": ["background.js"]
+        },
+        "minimum_chrome_version":"22.0.0"
+    }
+    """
 
-#     background_js = """
-#     var config = {
-#             mode: "fixed_servers",
-#             rules: {
-#             singleProxy: {
-#                 scheme: "http",
-#                 host: "%s",
-#                 port: parseInt(%s)
-#             },
-#             bypassList: ["localhost"]
-#             }
-#         };
+    background_js = """
+    var config = {
+            mode: "fixed_servers",
+            rules: {
+            singleProxy: {
+                scheme: "http",
+                host: "%s",
+                port: parseInt(%s)
+            },
+            bypassList: ["localhost"]
+            }
+        };
 
-#     chrome.proxy.settings.set({value: config, scope: "regular"}, function() {});
+    chrome.proxy.settings.set({value: config, scope: "regular"}, function() {});
 
-#     function callbackFn(details) {
-#         return {
-#             authCredentials: {
-#                 username: "%s",
-#                 password: "%s"
-#             }
-#         };
-#     }
+    function callbackFn(details) {
+        return {
+            authCredentials: {
+                username: "%s",
+                password: "%s"
+            }
+        };
+    }
 
-#     chrome.webRequest.onAuthRequired.addListener(
-#                 callbackFn,
-#                 {urls: ["<all_urls>"]},
-#                 ['blocking']
-#     );
-#     """ % (host, port, user, password)
+    chrome.webRequest.onAuthRequired.addListener(
+                callbackFn,
+                {urls: ["<all_urls>"]},
+                ['blocking']
+    );
+    """ % (host, port, user, password)
 
-#     chrome_options = _get_chrome_options()
+    chrome_options = _get_chrome_options()
 
-#     pluginfile = 'proxy_auth_plugin.zip'
+    pluginfile = 'proxy_auth_plugin'
 
-#     with zipfile.ZipFile(pluginfile, 'w') as zp:
-#         zp.writestr('manifest.json', manifest_json)
-#         zp.writestr('background.js', background_js)
+    if (not os.path.exists(pluginfile)):
+        os.mkdir(pluginfile)
 
-#     chrome_options.add_extension(pluginfile)
+    with open(f'{pluginfile}/manifest.json', 'w') as f:
+        f.write(manifest_json)
+    
+    with open(f'{pluginfile}/background.js', 'w') as f:
+        f.write(background_js)
 
-#     driver = webdriver.Chrome(options=chrome_options, service=Service(ChromeDriverManager().install()))
+    # with zipfile.ZipFile(pluginfile, 'w') as zp:
+    #     zp.writestr('manifest.json', manifest_json)
+    #     zp.writestr('background.js', background_js)
 
-#     return driver
+    chrome_options.add_argument(f'--load-extension={pluginfile}')
+
+    # chrome_options.add_extension(pluginfile)
+
+    driver = uc.Chrome(options=chrome_options)
+
+    return driver

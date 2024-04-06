@@ -40,13 +40,21 @@ def get_product_information(driver: webdriver.Chrome, product_link: str) -> dict
     check_for_reload(driver)
 
     try:
-        product_div = WebDriverWait(driver, 10).until(
+        product_div = WebDriverWait(driver, 2).until(
             EC.presence_of_element_located(
                 (By.ID, 'ppd')
             )
         )
     except TimeoutException:
-        raise ProductUnavailable(product_link)
+        driver.refresh()
+        try:
+            product_div = WebDriverWait(driver, 2).until(
+                EC.presence_of_element_located(
+                    (By.ID, 'ppd')
+                )
+            )
+        except TimeoutException:
+            raise ProductUnavailable(product_link)
 
     try:
         price_table = product_div.find_element(By.TAG_NAME, 'table')
