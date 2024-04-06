@@ -87,6 +87,8 @@ if __name__ == '__main__':
     driver.close()
 
     driver = get_chromedriver_with_proxy(HOST, PORT, USER, PASS)
+
+    driver.get(flipcart_data[-1]['Url'])
         
     logger.info('scraping flipcart data')
     for entry in flipcart_data:
