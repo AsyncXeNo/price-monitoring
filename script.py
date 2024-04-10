@@ -6,7 +6,7 @@ import utils.config as _
 from loguru import logger
 
 from pyvirtualdisplay import Display
-from utils.selenium_utils import get_chromedriver_without_proxy
+from utils.selenium_utils import get_chromedriver_without_proxy, get_chromedriver_with_proxy
 from portals.amazon import get_product_information as get_amazon_product_information
 from portals.flipcart import get_product_information as get_flipcart_product_information
 from portals.one_mg import get_product_information as get_one_mg_product_information
@@ -15,6 +15,12 @@ from portals.hyugalife import get_product_information as get_hyugalife_product_i
 from utils.sheets import get_amazon_data, get_flipcart_data, get_1mg_data, get_nykaa_data, get_hyugalife_data, compile_data
 from utils.mail import send_output_mail, send_error_mail, send_email
 from exceptions.product import ProductUnavailable
+
+
+HOST = 'brd.superproxy.io'
+PORT = '22225'
+USER = 'brd-customer-hl_8805587a-zone-pricemon_willthiswork'
+PASS = '125h0s4vd7nh'
 
 
 if __name__ == '__main__':
@@ -45,6 +51,8 @@ if __name__ == '__main__':
         logger.error(e)
         send_error_mail('Error while loading data from google sheet')
         exit()
+
+    driver.get(amazon_data[-1]['Url'])
 
     logger.info('scraping amazon data')
     for entry in amazon_data:
@@ -77,6 +85,12 @@ if __name__ == '__main__':
             logger.error('Amazon data structure has been changed')
             send_error_mail('Amazon sheet data structure has been changed')
             exit()
+
+    driver.close()
+
+    driver = get_chromedriver_with_proxy(HOST, PORT, USER, PASS)
+
+    driver.get(flipcart_data[-1]['Url'])
         
     logger.info('scraping flipkart data')
     for entry in flipcart_data:
@@ -104,6 +118,10 @@ if __name__ == '__main__':
             logger.error('Flipkart data structure has been changed')
             send_error_mail('Flipkart sheet data structure has been changed')
             exit()
+
+    driver.close()
+
+    driver = get_chromedriver_without_proxy()
 
     logger.info('scraping 1mg data')
     for entry in one_mg_data:
@@ -194,6 +212,6 @@ if __name__ == '__main__':
 
     logger.info('compilation complete, emailing...')
 
-    send_output_mail()
+    # send_output_mail()
 
     logger.info('script has run to completion!')

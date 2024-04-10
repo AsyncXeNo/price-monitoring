@@ -30,7 +30,6 @@ if __name__ == '__main__':
     
     driver = get_chromedriver_without_proxy()
     
-
     amazon_output = []
     flipcart_output = []
     one_mg_output = []

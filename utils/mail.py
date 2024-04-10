@@ -33,6 +33,7 @@ def get_credentials():
     creds = None
     if os.path.exists('data/auth/token.json'):
         creds = Credentials.from_authorized_user_file('data/auth/token.json')
+        creds.refresh(Request())
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
