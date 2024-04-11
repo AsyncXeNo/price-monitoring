@@ -30,8 +30,6 @@ if __name__ == '__main__':
 
     disp = Display()
     disp.start()
-    
-    driver = get_chromedriver_without_proxy()
 
     amazon_output = []
     flipcart_output = []
@@ -51,42 +49,6 @@ if __name__ == '__main__':
         logger.error(e)
         send_error_mail('Error while loading data from google sheet')
         exit()
-
-    driver.get(amazon_data[-1]['Url'])
-
-    logger.info('scraping amazon data')
-    for entry in amazon_data:
-        try:
-            ASIN = entry['ASIN']
-            Product = entry['Product']
-            source_MRP = float(entry['source_MRP'])
-            source_SP = float(entry['source_SP'])
-            Url = str(entry['Url'])
-            if ('http' not in Url.strip().lower()): 
-                logger.warning(f'skipping amazon product, ASIN: {ASIN}')
-                continue
-            try:
-                scraped = get_amazon_product_information(driver, Url)
-                logger.debug(f'scraped amazon product: {Url}')
-            except ProductUnavailable:
-                scraped = {'mrp': 'NA', 'sp': 'NA', 'seller': 'NA'}
-                logger.error(f'amazon product not found: {Url}')
-            amazon_output.append({
-                'ASIN': ASIN,
-                'Product': Product,
-                'source_MRP': source_MRP,
-                'scraped_MRP': scraped['mrp'],
-                'source_SP': source_SP,
-                'scraped_SP': scraped['sp'],
-                'seller': scraped['seller'],
-                'Url': Url
-            })
-        except KeyError:
-            logger.error('Amazon data structure has been changed')
-            send_error_mail('Amazon sheet data structure has been changed')
-            exit()
-
-    driver.close()
 
     driver = get_chromedriver_with_proxy(HOST, PORT, USER, PASS)
 
@@ -122,6 +84,40 @@ if __name__ == '__main__':
     driver.close()
 
     driver = get_chromedriver_without_proxy()
+
+    driver.get(amazon_data[-1]['Url'])
+
+    logger.info('scraping amazon data')
+    for entry in amazon_data:
+        try:
+            ASIN = entry['ASIN']
+            Product = entry['Product']
+            source_MRP = float(entry['source_MRP'])
+            source_SP = float(entry['source_SP'])
+            Url = str(entry['Url'])
+            if ('http' not in Url.strip().lower()): 
+                logger.warning(f'skipping amazon product, ASIN: {ASIN}')
+                continue
+            try:
+                scraped = get_amazon_product_information(driver, Url)
+                logger.debug(f'scraped amazon product: {Url}')
+            except ProductUnavailable:
+                scraped = {'mrp': 'NA', 'sp': 'NA', 'seller': 'NA'}
+                logger.error(f'amazon product not found: {Url}')
+            amazon_output.append({
+                'ASIN': ASIN,
+                'Product': Product,
+                'source_MRP': source_MRP,
+                'scraped_MRP': scraped['mrp'],
+                'source_SP': source_SP,
+                'scraped_SP': scraped['sp'],
+                'seller': scraped['seller'],
+                'Url': Url
+            })
+        except KeyError:
+            logger.error('Amazon data structure has been changed')
+            send_error_mail('Amazon sheet data structure has been changed')
+            exit()
 
     logger.info('scraping 1mg data')
     for entry in one_mg_data:
@@ -212,6 +208,6 @@ if __name__ == '__main__':
 
     logger.info('compilation complete, emailing...')
 
-    # send_output_mail()
+    send_output_mail()
 
     logger.info('script has run to completion!')
