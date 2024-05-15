@@ -50,7 +50,8 @@ if __name__ == '__main__':
         send_error_mail('Error while loading data from google sheet')
         exit()
 
-    driver = get_chromedriver_with_proxy(HOST, PORT, USER, PASS)
+    # driver = get_chromedriver_with_proxy(HOST, PORT, USER, PASS)
+    driver = get_chromedriver_without_proxy()
 
     driver.get(flipcart_data[-1]['Url'])
         

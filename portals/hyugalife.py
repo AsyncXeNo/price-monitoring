@@ -20,6 +20,12 @@ def get_product_information(driver:webdriver.Chrome, product_link: str) -> dict[
         sp = float(driver.find_element(By.XPATH, " //p[contains(text(), '₹')]").get_attribute('innerText').strip().strip('₹').replace(',', ''))
         mrp = float(driver.find_element(By.TAG_NAME, 'del').get_attribute('innerText').strip().strip('₹').replace(',', ''))
 
+        if 'product is sold out' in driver.find_element(By.CLASS_NAME, 'product-select-options').get_attribute('innerText').strip().lower():
+            return {
+                'mrp': 'NA',
+                'sp': 'NA'
+            }
+
         return {
             'mrp': mrp,
             'sp': sp

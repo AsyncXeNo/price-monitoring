@@ -28,8 +28,6 @@ if __name__ == '__main__':
     disp = Display()
     disp.start()
     
-    driver = get_chromedriver_without_proxy()
-    
     amazon_output = []
     flipcart_output = []
     one_mg_output = []
@@ -49,6 +47,8 @@ if __name__ == '__main__':
         # send_error_mail('Error while loading data from google sheet')
         exit()
 
+    driver = get_chromedriver_without_proxy()
+    
     driver.get(amazon_data[-1]['Url'])
 
     logger.info('scraping amazon data')
@@ -83,9 +83,10 @@ if __name__ == '__main__':
             # send_error_mail('Amazon sheet data structure has been changed')
             exit()
         
-    driver.close()
+    driver.quit()
 
-    driver = get_chromedriver_with_proxy(HOST, PORT, USER, PASS)
+    # driver = get_chromedriver_with_proxy(HOST, PORT, USER, PASS)
+    driver = get_chromedriver_without_proxy()
 
     driver.get(flipcart_data[-1]['Url'])
         
@@ -116,7 +117,7 @@ if __name__ == '__main__':
             # send_error_mail('Flipcart sheet data structure has been changed')
             exit()
 
-    driver.close()
+    driver.quit()
 
     driver = get_chromedriver_without_proxy()
 
@@ -198,7 +199,7 @@ if __name__ == '__main__':
             # send_error_mail('Hyugalife sheet data structure has been changed')
             exit()
         
-    driver.close()
+    driver.quit()
 
     disp.stop()
 

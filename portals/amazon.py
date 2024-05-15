@@ -60,20 +60,32 @@ def get_product_information(driver: webdriver.Chrome, product_link: str) -> dict
         price_table = product_div.find_element(By.TAG_NAME, 'table')
         rows = price_table.find_elements(By.TAG_NAME, 'tr')
 
-        mrp_row = rows[0]
-        sp_row = rows[1]
+        try:
+            mrp_row = rows[0]
+            sp_row = rows[1]
 
-        mrp = float(mrp_row.find_element(By.CLASS_NAME, 'a-offscreen').get_attribute('innerText').strip().strip('₹').replace(',', ''))
-        sp = float(sp_row.find_element(By.CLASS_NAME, 'a-offscreen').get_attribute('innerText').strip().strip('₹').replace(',', ''))
+            mrp = float(mrp_row.find_element(By.CLASS_NAME, 'a-offscreen').get_attribute('innerText').strip().strip('₹').replace(',', ''))
+            sp = float(sp_row.find_element(By.CLASS_NAME, 'a-offscreen').get_attribute('innerText').strip().strip('₹').replace(',', ''))
 
-        seller = driver.find_elements(By.CLASS_NAME, 'tabular-buybox-text')[-1].get_attribute('innerText').strip()
+            seller = driver.find_elements(By.CLASS_NAME, 'tabular-buybox-text')[-1].get_attribute('innerText').strip()
+            
+            return {
+                'mrp': mrp,
+                'sp': sp,
+                'seller': seller
+            }
+        except Exception:
+            sp_row = rows[0]
+            sp = float(sp_row.find_element(By.CLASS_NAME, 'a-offscreen').get_attribute('innerText').strip().strip('₹').replace(',', ''))
+
+            seller = driver.find_elements(By.CLASS_NAME, 'tabular-buybox-text')[-1].get_attribute('innerText').strip()
+
+            return {
+                'mrp': 'NA',
+                'sp': sp,
+                'seller': seller
+            }
         
-        return {
-            'mrp': mrp,
-            'sp': sp,
-            'seller': seller
-        }
-    
     except Exception:
         try:
             center_col = product_div.find_element(By.ID, 'centerCol')

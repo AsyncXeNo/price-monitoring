@@ -17,11 +17,11 @@ def get_product_information(driver: webdriver.Chrome, product_link: str) -> dict
     try:
         sp = float(WebDriverWait(driver, 1).until(
             EC.presence_of_element_located(
-                (By.CSS_SELECTOR, '._30jeq3._16Jk6d')
+                (By.CSS_SELECTOR, '.Nx9bqj.CxhGGd')
             )
         ).get_attribute('innerText').strip().strip('₹').replace(',', ''))
         try:
-            mrp = float(driver.find_element(By.CSS_SELECTOR, '._3I9_wc._2p6lqe').get_attribute('innerText').strip().strip('₹').replace(',', ''))
+            mrp = float(driver.find_element(By.CSS_SELECTOR, "div[class='yRaY8j A6+E6v']").get_attribute('innerText').strip().strip('₹').replace(',', ''))
         except Exception: 
             mrp = 'NA'
 
