@@ -27,6 +27,22 @@ def get_product_information(driver: webdriver.Chrome, product_link: str) -> dict
 
         seller = driver.find_element(By.ID, 'sellerName').find_element(By.TAG_NAME, 'span').find_element(By.TAG_NAME, 'span').get_attribute('innerText').strip()
 
+        if 'assiduus' not in seller.lower():
+            try:
+                other_sellers_button = driver.find_element(By.XPATH, "//a[div[text()='See other sellers']]")
+                other_sellers_button.click()
+                try:
+                    WebDriverWait(driver, 1).until(
+                        EC.presence_of_element_located(
+                            (By.XPATH, "//span[text()='Assiduus Distribution']")
+                        )
+                    )
+                    seller += ' / Assiduus Distribution'
+                except Exception:
+                    pass
+            except Exception:
+                pass
+            
         return {
             'mrp': mrp,
             'sp': sp,

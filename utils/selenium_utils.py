@@ -37,7 +37,7 @@ def _get_chrome_options():
     # chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"]) 
     # chrome_options.add_experimental_option("useAutomationExtension", False) 
 
-    chrome_options.add_experimental_option( "prefs",{'profile.managed_default_content_settings.javascript': 2})
+    # chrome_options.add_experimental_option( "prefs",{'profile.managed_default_content_settings.javascript': 2})
     # chrome_options.add_argument('--headless=new')
 
     return chrome_options
