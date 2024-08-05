@@ -4,7 +4,7 @@ import zipfile
 # from selenium import webdriver
 # from selenium.webdriver.chrome.service import Service
 # from fake_useragent import UserAgent
-# from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.chrome import ChromeDriverManager
 import undetected_chromedriver as uc
 
 
@@ -32,6 +32,10 @@ def _get_chrome_options():
     # chrome_options.add_argument("--disable-infobars")
     # chrome_options.add_argument("--disable-save-password-bubble")
 
+    chrome_options.add_argument("--user-data-dir=/home/asyncxeno/Dev/price-monitoring/user_data_dir")
+    chrome_options.add_argument("--profile-directory=Default")
+    # chrome_options.add_argument('--remote-debugging-port=9223')
+
     # chrome_options.add_argument("--headless=new")
 
     # chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"]) 
@@ -46,7 +50,7 @@ def _get_chrome_options():
 @_driver_wrapper
 def get_chromedriver_without_proxy() -> uc.Chrome:
     chrome_options = _get_chrome_options()
-    driver = uc.Chrome(options=chrome_options)
+    driver = uc.Chrome(options=chrome_options, driver_executable_path=ChromeDriverManager().install())
     return driver
 
 

@@ -19,13 +19,15 @@ sender_email = 'dev.kartikaggarwal117@gmail.com'
 target_email_list = [
     'dev.kartikaggarwal117@gmail.com',
     'kartik.aggarwal117@gmail.com',
+    'ecom1@novuslifesciences.com',
     'ecom4@novuslifesciences.com',
     'ecom6@novuslifesciences.com',
     'ecom7@novuslifesciences.com',
-    'ecom1@novuslifesciences.com',
-    'ecom13@novuslifesciences.com',
+    'ecom9@novuslifesciences.com',
     'ecom12@novuslifesciences.com',
-    'ecom9@novuslifesciences.com'
+    'ecom13@novuslifesciences.com',
+    'ecom16@novuslifesciences.com',
+    'ecom17@novuslifesciences.com',
 ]
 
 
@@ -106,6 +108,6 @@ def send_error_mail(error):
     formatted_date = current_date.strftime("%d %B")
     send_email(sender_email, 
                target_email_list, 
-               f'{formatted_date} - Error while running script', 
+               f'{formatted_date} - Error while running PRICE MONITORING script', 
                f'THIS EMAIL HAS BEEN AUTOMATICALLY GENERATED!\n\nA critical error has occured while running the script: "{error}".\nA copy of this email has been sent to the developer.\nPlease contact the developer for further information.\nScript logs have been attached.', 
                ['logs/script.log'])

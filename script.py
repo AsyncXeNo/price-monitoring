@@ -6,6 +6,7 @@ import utils.config as _
 from loguru import logger
 
 from pyvirtualdisplay import Display
+
 from utils.selenium_utils import get_chromedriver_without_proxy, get_chromedriver_with_proxy
 from portals.amazon import get_product_information as get_amazon_product_information
 from portals.flipcart import get_product_information as get_flipcart_product_information
@@ -81,10 +82,6 @@ if __name__ == '__main__':
             logger.error('Flipkart data structure has been changed')
             send_error_mail('Flipkart sheet data structure has been changed')
             exit()
-
-    driver.close()
-
-    driver = get_chromedriver_without_proxy()
 
     driver.get(amazon_data[-1]['Url'])
 
@@ -199,10 +196,6 @@ if __name__ == '__main__':
             send_error_mail('Hyugalife sheet data structure has been changed')
             exit()
         
-    driver.close()
-
-    disp.stop()
-
     logger.info('data scraping complete, compiling...')
         
     compile_data(amazon_output, flipcart_output, one_mg_output, nykaa_output, hyugalife_output)
@@ -210,5 +203,9 @@ if __name__ == '__main__':
     logger.info('compilation complete, emailing...')
 
     send_output_mail()
+
+    driver.close()
+
+    disp.stop()
 
     logger.info('script has run to completion!')
