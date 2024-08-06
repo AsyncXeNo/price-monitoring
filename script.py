@@ -83,7 +83,7 @@ if __name__ == '__main__':
             send_error_mail('Flipkart sheet data structure has been changed')
             exit()
 
-    driver.get(amazon_data[-1]['Url'])
+    driver.get(amazon_data[3]['Url'])
 
     logger.info('scraping amazon data')
     for entry in amazon_data:
@@ -100,7 +100,7 @@ if __name__ == '__main__':
                 scraped = get_amazon_product_information(driver, Url)
                 logger.debug(f'scraped amazon product: {Url}')
             except ProductUnavailable:
-                scraped = {'mrp': 'NA', 'sp': 'NA', 'seller': 'NA'}
+                scraped = {'mrp': 'NA', 'sp': 'NA', 'seller': 'NA', 'deal tag': 'NA'}
                 logger.error(f'amazon product not found: {Url}')
             amazon_output.append({
                 'ASIN': ASIN,
@@ -110,6 +110,7 @@ if __name__ == '__main__':
                 'source_SP': source_SP,
                 'scraped_SP': scraped['sp'],
                 'seller': scraped['seller'],
+                'deal tag': scraped['deal tag'],
                 'Url': Url
             })
         except KeyError:

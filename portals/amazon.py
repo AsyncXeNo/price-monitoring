@@ -68,22 +68,36 @@ def get_product_information(driver: webdriver.Chrome, product_link: str) -> dict
             sp = float(sp_row.find_element(By.CLASS_NAME, 'a-offscreen').get_attribute('innerText').strip().strip('₹').replace(',', ''))
 
             seller = driver.find_elements(By.CLASS_NAME, 'tabular-buybox-text')[-1].get_attribute('innerText').strip()
+
+            try:
+                driver.find_element(By.CSS_SELECTOR, '#dealBadgeSupportingText')
+                deal_tag = 'Yes'
+            except Exception:
+                deal_tag = 'No'
             
             return {
                 'mrp': mrp,
                 'sp': sp,
-                'seller': seller
+                'seller': seller,
+                'deal tag': deal_tag
             }
         except Exception:
             sp_row = rows[0]
             sp = float(sp_row.find_element(By.CLASS_NAME, 'a-offscreen').get_attribute('innerText').strip().strip('₹').replace(',', ''))
 
             seller = driver.find_elements(By.CLASS_NAME, 'tabular-buybox-text')[-1].get_attribute('innerText').strip()
+            
+            try:
+                driver.find_element(By.CSS_SELECTOR, '#dealBadgeSupportingText')
+                deal_tag = 'Yes'
+            except Exception:
+                deal_tag = 'No'
 
             return {
                 'mrp': 'NA',
                 'sp': sp,
-                'seller': seller
+                'seller': seller,
+                'deal tag': deal_tag
             }
         
     except Exception:
@@ -93,11 +107,18 @@ def get_product_information(driver: webdriver.Chrome, product_link: str) -> dict
             mrp = float(center_col.find_elements(By.CSS_SELECTOR, '#centerCol .a-text-price .a-offscreen')[-1].get_attribute('innerText').strip().strip('₹').replace(',', ''))
 
             seller = driver.find_elements(By.CLASS_NAME, 'tabular-buybox-text')[-1].get_attribute('innerText').strip()
+
+            try:
+                driver.find_element(By.CSS_SELECTOR, '#dealBadgeSupportingText')
+                deal_tag = 'Yes'
+            except Exception:
+                deal_tag = 'No'
             
             return {
                 'mrp': mrp,
                 'sp': sp,
-                'seller': seller
+                'seller': seller,
+                'deal tag': deal_tag
             }
         
         except Exception:
