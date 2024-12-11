@@ -1,17 +1,4 @@
-[2024-12-11T19:00:04.236216+0530] [0:00:00.378907] [__main__: 29] > starting script
-[2024-12-11T19:00:05.182867+0530] [0:00:01.325558] [utils.mail: 66] > Email has been sent successfully
-[2024-12-11T19:00:05.183052+0530] [0:00:01.325743] [__main__: 44] > loading data
-[2024-12-11T19:00:10.897715+0530] [0:00:07.040406] [__main__: 123] > scraping 1mg data
-[2024-12-11T19:00:12.057550+0530] [0:00:08.200241] [__main__: 136] > [1/135] 1mg product not found: https://www.1mg.com/otc/carbamide-forte-probiotics-2.75-billion-cfu-prebiotics-100mg-vegetarian-capsule-otc497014
-[2024-12-11T19:00:14.828743+0530] [0:00:10.971434] [__main__: 136] > [2/135] 1mg product not found: https://www.1mg.com/otc/carbamide-forte-probiotics-30-billion-cfu-prebiotics-100mg-vegetarian-capsule-otc497017
-[2024-12-11T19:00:17.698830+0530] [0:00:13.841521] [__main__: 136] > [3/135] 1mg product not found: https://www.1mg.com/otc/carbamide-forte-probiotics-30-billion-cfu-prebiotics-100mg-vegetarian-capsule-otc497017
-[2024-12-11T19:00:20.253235+0530] [0:00:16.395926] [__main__: 136] > [4/135] 1mg product not found: https://www.1mg.com/otc/carbamide-forte-omega-3-600mg-double-strength-softgel-capsule-otc542962
-[2024-12-11T19:00:22.917599+0530] [0:00:19.060290] [__main__: 136] > [5/135] 1mg product not found: https://www.1mg.com/otc/carbamide-forte-burner-8x-2155.05mg-tablet-otc691042
-[2024-12-11T19:00:25.551193+0530] [0:00:21.693884] [__main__: 136] > [6/135] 1mg product not found: https://www.1mg.com/otc/carbamide-forte-chelated-iron-vitamin-c-folic-acid-vit-b12-zinc-vegetarian-tablet-otc543005
-[2024-12-11T19:00:28.366063+0530] [0:00:24.508754] [__main__: 136] > [7/135] 1mg product not found: https://www.1mg.com/otc/carbamide-forte-cold-pressed-flaxseed-oil-1000mg-with-omega-3-6-9-825mg-softgel-capsule-otc543354
-[2024-12-11T19:00:31.241472+0530] [0:00:27.384163] [__main__: 136] > [8/135] 1mg product not found: https://www.1mg.com/otc/carbamide-forte-multivitamins-with-probiotics-for-women-vegetarian-tablet-otc543376
-[2024-12-11T19:00:34.344467+0530] [0:00:30.487158] [__main__: 136] > [9/135] 1mg product not found: https://www.1mg.com/otc/carbamide-forte-biotin-from-sesbania-grandiflora-extract-amla-bamboo-extract-tablet-otc543383
-[2024-12-11T19:00:41.903106+0530] [0:00:38.045797] [__main__: 136] > [10/135] 1mg product not found: https://www.1mg.com/otc/carbamide-forte-garcinia-cambogia-2500mg-with-5mg-piperine-60-hca-tablet-otc543389
-[2024-12-11T19:00:49.042892+0530] [0:00:45.185583] [__main__: 136] > [11/135] 1mg product not found: https://www.1mg.com/otc/carbamide-forte-l-carnitine-l-tartrate-1000mg-capsule-otc543393
-[2024-12-11T19:00:55.951834+0530] [0:00:52.094525] [__main__: 136] > [12/135] 1mg product not found: https://www.1mg.com/otc/carbamide-forte-milk-thistle-extract-600mg-vegetarian-tablet-otc543398
-[2024-12-11T19:01:01.948025+0530] [0:00:58.090716] [__main__: 136] > [13/135] 1mg product not found: https://www.1mg.com/otc/carbamide-forte-salmon-fish-oil-1000mg-softgel-capsule-otc543415
+[2024-12-11T19:01:51.106123+0530] [0:00:00.366733] [__main__: 29] > starting script
+[2024-12-11T19:01:52.023730+0530] [0:00:01.284340] [utils.mail: 66] > Email has been sent successfully
+[2024-12-11T19:01:52.024067+0530] [0:00:01.284677] [__main__: 44] > loading data
+[2024-12-11T19:01:58.112501+0530] [0:00:07.373111] [__main__: 57] > scraping flipkart data

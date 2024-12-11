@@ -30,8 +30,8 @@ if __name__ == '__main__':
 
     send_email('dev.kartikaggarwal117@gmail.com', ['dev.kartikaggarwal117@gmail.com'], 'Pricemon Execute', 'Script has started execution!', [])
 
-    # disp = Display()
-    # disp.start()
+    disp = Display()
+    disp.start()
 
     amazon_output = []
     flipcart_output = []
@@ -216,6 +216,6 @@ if __name__ == '__main__':
 
     driver.close()
 
-    # disp.stop()
+    disp.stop()
 
     logger.info('script has run to completion!')
