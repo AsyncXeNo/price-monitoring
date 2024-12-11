@@ -24,10 +24,13 @@ target_email_list = [
     'ecom6@novuslifesciences.com',
     'ecom7@novuslifesciences.com',
     'ecom9@novuslifesciences.com',
+    'ecom11@novuslifesciences.com',
     'ecom12@novuslifesciences.com',
     'ecom13@novuslifesciences.com',
+    'ecom14@novuslifesciences.com',
     'ecom16@novuslifesciences.com',
     'ecom17@novuslifesciences.com',
+    'ecom19@novuslifesciences.com',
 ]
 
 

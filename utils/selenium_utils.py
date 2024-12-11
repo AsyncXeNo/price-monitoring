@@ -23,6 +23,17 @@ def _driver_wrapper(f):
     return wrapper
 
 
+def _get_chrome_options_without_js():
+    chrome_options = uc.ChromeOptions()
+
+    chrome_options.add_argument("--user-data-dir=/home/asyncxeno/Dev/price-monitoring/user_data_dir")
+    chrome_options.add_argument("--profile-directory=Default")
+
+    chrome_options.add_experimental_option( "prefs",{'profile.managed_default_content_settings.javascript': 2})
+
+    return chrome_options
+
+
 def _get_chrome_options():
     chrome_options = uc.ChromeOptions()
     # ua = UserAgent()
@@ -46,6 +57,12 @@ def _get_chrome_options():
 
     return chrome_options
 
+
+@_driver_wrapper
+def get_chromedriver_without_javascript() -> uc.Chrome:
+    chrome_options = _get_chrome_options_without_js()
+    driver = uc.Chrome(options=chrome_options, driver_executable_path=ChromeDriverManager().install())
+    return driver
 
 @_driver_wrapper
 def get_chromedriver_without_proxy() -> uc.Chrome:

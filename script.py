@@ -1,5 +1,6 @@
 #!venv/bin/python3
 
+import pprint
 import time
 import utils.config as _
 
@@ -7,7 +8,7 @@ from loguru import logger
 
 from pyvirtualdisplay import Display
 
-from utils.selenium_utils import get_chromedriver_without_proxy, get_chromedriver_with_proxy
+from utils.selenium_utils import get_chromedriver_without_proxy, get_chromedriver_without_javascript
 from portals.amazon import get_product_information as get_amazon_product_information
 from portals.flipcart import get_product_information as get_flipcart_product_information
 from portals.one_mg import get_product_information as get_one_mg_product_information
@@ -29,8 +30,8 @@ if __name__ == '__main__':
 
     send_email('dev.kartikaggarwal117@gmail.com', ['dev.kartikaggarwal117@gmail.com'], 'Pricemon Execute', 'Script has started execution!', [])
 
-    disp = Display()
-    disp.start()
+    # disp = Display()
+    # disp.start()
 
     amazon_output = []
     flipcart_output = []
@@ -51,26 +52,25 @@ if __name__ == '__main__':
         send_error_mail('Error while loading data from google sheet')
         exit()
 
-    # driver = get_chromedriver_with_proxy(HOST, PORT, USER, PASS)
-    driver = get_chromedriver_without_proxy()
-
-    driver.get(flipcart_data[-1]['Url'])
+    driver = get_chromedriver_without_javascript()
         
     logger.info('scraping flipkart data')
-    for entry in flipcart_data:
+    for index, entry in enumerate(flipcart_data):
         try:
             Id = entry['Id']
+            SKU = entry['SKU']
             source_MRP = float(entry['source_MRP'])
             source_SP = float(entry['source_SP'])
             Url = str(entry['Url'])
             try:
                 scraped = get_flipcart_product_information(driver, Url)
-                logger.debug(f'scraped flipkart product: {Url}')
+                logger.debug(f'[{index + 1}/{len(flipcart_data)}] scraped flipkart product: {Url}')
             except ProductUnavailable:
                 scraped = {'mrp': 'NA', 'sp': 'NA', 'seller': 'NA'}
-                logger.error(f'flipkart product not found: {Url}')
+                logger.error(f'[{index + 1}/{len(flipcart_data)}] flipkart product not found: {Url}')
             flipcart_output.append({
                 'Id': Id,
+                'SKU': SKU,
                 'source_MRP': source_MRP,
                 'scraped_MRP': scraped['mrp'],
                 'source_SP': source_SP,
@@ -83,25 +83,23 @@ if __name__ == '__main__':
             send_error_mail('Flipkart sheet data structure has been changed')
             exit()
 
-    driver.get(amazon_data[3]['Url'])
-
     logger.info('scraping amazon data')
-    for entry in amazon_data:
+    for index, entry in enumerate(amazon_data):
         try:
             ASIN = entry['ASIN']
             Product = entry['Product']
-            source_MRP = float(entry['source_MRP'])
-            source_SP = float(entry['source_SP'])
+            source_MRP = float(str(entry['source_MRP']).replace(',', '').strip())
+            source_SP = float(str(entry['source_SP']).replace(',', '').strip())
             Url = str(entry['Url'])
             if ('http' not in Url.strip().lower()): 
-                logger.warning(f'skipping amazon product, ASIN: {ASIN}')
+                logger.warning(f'[{index + 1}/{len(amazon_data)}] skipping amazon product, ASIN: {ASIN}')
                 continue
             try:
                 scraped = get_amazon_product_information(driver, Url)
-                logger.debug(f'scraped amazon product: {Url}')
+                logger.debug(f'[{index + 1}/{len(amazon_data)}] scraped amazon product: {Url}')
             except ProductUnavailable:
-                scraped = {'mrp': 'NA', 'sp': 'NA', 'seller': 'NA', 'deal tag': 'NA'}
-                logger.error(f'amazon product not found: {Url}')
+                scraped = {'mrp': 'NA', 'sp': 'NA', 'seller': 'NA', 'deal tag': 'NA', 'expiry date': 'NA'}
+                logger.error(f'[{index + 1}/{len(amazon_data)}] amazon product not found: {Url}')
             amazon_output.append({
                 'ASIN': ASIN,
                 'Product': Product,
@@ -111,28 +109,34 @@ if __name__ == '__main__':
                 'scraped_SP': scraped['sp'],
                 'seller': scraped['seller'],
                 'deal tag': scraped['deal tag'],
+                'expiry date': scraped['expiry date'],
                 'Url': Url
             })
         except KeyError:
             logger.error('Amazon data structure has been changed')
             send_error_mail('Amazon sheet data structure has been changed')
             exit()
+        except ValueError:
+            logger.warning(f'[{index + 1}/{len(amazon_data)}] skipping amazon product, ASIN: {ASIN}')
+            continue
 
     logger.info('scraping 1mg data')
-    for entry in one_mg_data:
+    for index, entry in enumerate(one_mg_data):
         try:
             Id = entry['Id']
+            SKU = entry['SKU']
             source_MRP = float(entry['source_MRP'])
             source_SP = float(entry['source_SP'])
             Url = str(entry['Url'])
             try:
                 scraped = get_one_mg_product_information(driver, Url)
-                logger.debug(f'scraped 1mg product: {Url}')
+                logger.debug(f'[{index + 1}/{len(one_mg_data)}] scraped 1mg product: {Url}')
             except ProductUnavailable:
                 scraped = {'mrp': 'NA', 'sp': 'NA'}
-                logger.error(f'1mg product not found: {Url}')
+                logger.error(f'[{index + 1}/{len(one_mg_data)}] 1mg product not found: {Url}')
             one_mg_output.append({
                 'Id': Id,
+                'SKU': SKU,
                 'source_MRP': source_MRP,
                 'scraped_MRP': scraped['mrp'],
                 'source_SP': source_SP,
@@ -146,20 +150,23 @@ if __name__ == '__main__':
             exit()
     
     logger.info('scraping nykaa data')
-    for entry in nykaa_data:
+
+    for index, entry in enumerate(nykaa_data):
         try:
             Id = entry['Id']
+            SKU = entry['SKU']
             source_MRP = float(entry['source_MRP'])
             source_SP = float(entry['source_SP'])
             Url = str(entry['Url'])
             try:
                 scraped = get_nykaa_product_information(driver, Url)
-                logger.debug(f'scraped nykaa product: {Url}')
+                logger.debug(f'[{index + 1}/{len(nykaa_data)}] scraped nykaa product: {Url}')
             except ProductUnavailable:
                 scraped = {'mrp': 'NA', 'sp': 'NA'}
-                logger.error(f'nykaa product not found: {Url}')
+                logger.error(f'[{index + 1}/{len(nykaa_data)}] nykaa product not found: {Url}')
             nykaa_output.append({
                 'Id': Id,
+                'SKU': SKU,
                 'source_MRP': source_MRP,
                 'scraped_MRP': scraped['mrp'],
                 'source_SP': source_SP,
@@ -172,20 +179,22 @@ if __name__ == '__main__':
             exit()
     
     logger.info('scraping hyugalife data')
-    for entry in hyugalife_data:
+    for index, entry in enumerate(hyugalife_data):
         try:
             Id = entry['Id']
+            SKU = entry['SKU']
             source_MRP = float(entry['source_MRP'])
             source_SP = float(entry['source_SP'])
             Url = str(entry['Url'])
             try:
                 scraped = get_hyugalife_product_information(driver, Url)
-                logger.debug(f'scraped hyugalife product: {Url}')
+                logger.debug(f'[{index + 1}/{len(hyugalife_data)}] scraped hyugalife product: {Url}')
             except ProductUnavailable:
                 scraped = {'mrp': 'NA', 'sp': 'NA'}
-                logger.error(f'hyugalife product not found: {Url}')
+                logger.error(f'[{index + 1}/{len(hyugalife_data)}] hyugalife product not found: {Url}')
             hyugalife_output.append({
                 'Id': Id,
+                'SKU': SKU,
                 'source_MRP': source_MRP,
                 'scraped_MRP': scraped['mrp'],
                 'source_SP': source_SP,
@@ -207,6 +216,6 @@ if __name__ == '__main__':
 
     driver.close()
 
-    disp.stop()
+    # disp.stop()
 
     logger.info('script has run to completion!')

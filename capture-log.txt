@@ -1,235 +1,49 @@
-[2024-08-06T12:40:02.176784+0530] [0:00:00.410782] [script.py: 28] > starting script
-[2024-08-06T12:40:03.110165+0530] [0:00:01.344163] [mail.py: 63] > Email has been sent successfully
-[2024-08-06T12:40:03.156865+0530] [0:00:01.390863] [script.py: 43] > loading data
-[2024-08-06T12:40:11.350341+0530] [0:00:09.584339] [script.py: 59] > scraping flipkart data
-[2024-08-06T12:40:12.777681+0530] [0:00:11.011679] [script.py: 71] > flipkart product not found: https://www.flipkart.com/cf-chewable-cholecalciferol-vitamin-d3-60000iu-supplement-tablets/p/itmb4f1c9e05abee?pid=ALOG9ZSY54TARFJF&lid=LSTALOG9ZSY54TARFJF1LEY0K&marketplace=FLIPKART&q=vitamin+d&store=hlc&srno=s_1_8&otracker=search&fm=Search&iid=c6ee9fbe-2006-478d-bbc1-83cc98f34fb8.ALOG9ZSY54TARFJF.SEARCH&ppt=browse&ppn=browse&ssid=nvr9wcphv40000001650605488206&qH=da80118d5dad4c3e
-[2024-08-06T12:40:15.366756+0530] [0:00:13.600754] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/meltvit-chewable-vitamin-d3-10000-iu-cholecalciferol-d-supplement-women-men-orange-flavour-tablets/p/itm1fdacb9389fab?pid=ALOG9ZSYEQB7MVTS&lid=LSTALOG9ZSYEQB7MVTSRSKXZ6&marketplace=FLIPKART&q=MELTVIT&store=search.flipkart.com&srno=s_1_2&otracker=search&otracker1=search&fm=Search&iid=55e0622b-c19c-4b86-983b-677dd11b19dd.ALOG9ZSYEQB7MVTS.SEARCH&ppt=sp&ppn=sp&ssid=jz4a4fkbcg0000001653886231680&qH=14041a2e86924139
-[2024-08-06T12:40:17.163457+0530] [0:00:15.397455] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/meltvit-chewable-vitamin-d3-2000-iu-cholecalciferol-d-supplement-women-men-raspberry-flavour-tablets/p/itm1d53c5433db30?pid=ALOG9ZSYS6Z2NUFF&lid=LSTALOG9ZSYS6Z2NUFFI8MZIC&marketplace=FLIPKART&q=MELTVIT&store=search.flipkart.com&srno=s_1_1&otracker=search&otracker1=search&fm=Search&iid=416f7f0f-8651-4bec-be8e-45111d530816.ALOG9ZSYS6Z2NUFF.SEARCH&ppt=sp&ppn=sp&ssid=nu2khhobps0000001653886220059&qH=14041a2e86924139
-[2024-08-06T12:40:20.089708+0530] [0:00:18.323706] [script.py: 71] > flipkart product not found: https://www.flipkart.com/5-15pm-instant-active-dry-yeast-powder-fast-acting-baking-breads-pizzas-100g/p/itmcc0bd2af0248a?pid=BKIG2K5EU8ZMMBUG
-[2024-08-06T12:40:23.237592+0530] [0:00:21.471590] [script.py: 71] > flipkart product not found: https://www.flipkart.com/5-15pm-rolled-oats-500g-gluten-free-weight-loss-healthy-cereal-breakfast-pouch/p/itma5a36e64ee17b?pid=CAFGFEBGH8J5C2SE
-[2024-08-06T12:40:25.470318+0530] [0:00:23.704316] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-green-coffee-beans-high-cga-unroasted-arabica/p/itm73e8102aa3b0b?pid=CFEGCQPBEYHAYHED
-[2024-08-06T12:40:29.292783+0530] [0:00:27.526781] [script.py: 71] > flipkart product not found: https://www.flipkart.com/5-15pm-yellow-banana-chips-snacks-fresh-crispy-wafers-classic-salted-flavour/p/itmb3f5305cf313c?pid=CHPGFBN7HNKEWSHY
-[2024-08-06T12:40:32.367344+0530] [0:00:30.601342] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-100-pure-cold-pressed-extra-virgin-coconut-oil-skin-hair-growth-cooking-jar/p/itm8a2faaaa433ca?pid=EDOFWVMYUJYRFHVQ
-[2024-08-06T12:40:34.619265+0530] [0:00:32.853263] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-100-pure-cold-pressed-extra-virgin-coconut-oil-skin-hair-growth-cooking-plastic-bottle/p/itm66110c46b8c60?pid=EDOFXWHQQQQUAVXX
-[2024-08-06T12:40:37.040848+0530] [0:00:35.274846] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/5-15pm-virgin-coconut-oil-cold-pressed-hair-baby-skin-cooking-plastic-bottle/p/itm5d296f741066e?pid=EDOG53D2GW4UWBUN
-[2024-08-06T12:40:39.527206+0530] [0:00:37.761204] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/5-15pm-virgin-coconut-oil-cold-pressed-hair-baby-skin-cooking-raw-unrefined-plastic-bottle/p/itm3cb3d08df0ca9?pid=EDOG53D4STHJ3FVQ
-[2024-08-06T12:40:41.989639+0530] [0:00:40.223637] [script.py: 71] > flipkart product not found: https://www.flipkart.com/5-15pm-certified-organic-chia-seeds-raw-unroasted-black-eating/p/itmd0e6bd7f85d2a?pid=EDSGAEEC467KGV6F
-[2024-08-06T12:40:44.399077+0530] [0:00:42.633075] [script.py: 71] > flipkart product not found: https://www.flipkart.com/5-15pm-100-certified-organic-flaxseeds-raw-unroasted-flax-seeds-eating/p/itme6814bf52e1fd?pid=EDSGAEGCY96KWWCC
-[2024-08-06T12:40:46.799041+0530] [0:00:45.033039] [script.py: 71] > flipkart product not found: https://www.flipkart.com/5-15pm-halim-seeds-aliv-seeds-eating-haleem-seeds-garden-cress-seeds400g/p/itmc773ad8fec675?pid=EDSGCBBUURUGSCZZ
-[2024-08-06T12:40:49.203138+0530] [0:00:47.437136] [script.py: 71] > flipkart product not found: https://www.flipkart.com/5-15pm-basil-seeds-100-organic-raw-seeds-tukmaria-seeds-sabja-eating/p/itm6dbdcbf004fbc?pid=EDSGFQNDRHAHUUVP
-[2024-08-06T12:40:51.657744+0530] [0:00:49.891742] [script.py: 71] > flipkart product not found: https://www.flipkart.com/5-15pm-100-organic-quinoa-seeds-weight-loss-white-gluten-free/p/itmc9a816a5e9da6?pid=EDSGFW88TGVUFC4G
-[2024-08-06T12:40:54.134734+0530] [0:00:52.368732] [script.py: 71] > flipkart product not found: https://www.flipkart.com/5-15pm-organic-a2-cow-ghee-100-desi-gir-traditional-vedic-bilona-method-250-ml-glass-bottle/p/itma0167831d91b5?pid=GHEGCDJ3TA5FS6Q9
-[2024-08-06T12:40:56.989637+0530] [0:00:55.223635] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/5-15pm-dried-dates-powder-kharik-powder-without-sugar-250g-dry/p/itm821943166d08a?pid=NDFGC8FZMNFXWEXG
-[2024-08-06T12:40:59.707860+0530] [0:00:57.941858] [script.py: 71] > flipkart product not found: https://www.flipkart.com/5-15pm-popcorn-kernel-seeds-big-size-gourmet-pop-corn-kernels-imported-usa/p/itmbcfcda32db9e6?pid=PCPGAQQNFZZZS7Z2
-[2024-08-06T12:41:01.921557+0530] [0:01:00.155555] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-pets-chewable-hip-joint-tablet-glucosamine-chondroitin-msm-joint-support-supplement-dogs-puppy-cats-chicken-flavour-pet-health-supplements/p/itmf9cc7d83539db?pid=PHSG64Y8KSPPF9HE
-[2024-08-06T12:41:04.267460+0530] [0:01:02.501458] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-pets-chewable-calcium-tablet-dogs-supplement-vitamin-d3-b12-magnesium-zinc-chicken-flavour-pet-health-supplements/p/itm85690cf477f39?pid=PHSG64YGV429Z4FF
-[2024-08-06T12:41:06.545585+0530] [0:01:04.779583] [script.py: 71] > flipkart product not found: https://www.flipkart.com/cf-pets-cats-dog-skin-coat-tablets-veg-omega-3-algal-dha-biotin-vitamin-c-health-shiny-chicken-flavour-pet-supplements/p/itm11487b4bb2aba?pid=PHSG68H7ZEGHHPFP
-[2024-08-06T12:41:07.781843+0530] [0:01:06.015841] [script.py: 71] > flipkart product not found: https://www.flipkart.com/cf-pets-chewable-multivitamin-tablets-dogs-23-essential-vitamins-minerals-healthy-skin-heart-brain-digestive-system-joint-function-chicken-flavour-pet-health-supplements/p/itmed317a3990710?pid=PHSG68HMNEKANBHA
-[2024-08-06T12:41:09.718405+0530] [0:01:07.952403] [script.py: 71] > flipkart product not found: https://www.flipkart.com/5-15pm-himalayan-pink-rock-salt-100-pure-salt-gourmet-quality-salt/p/itm8021482697902?pid=SATGF4GSKSCFYH7U
-[2024-08-06T12:41:12.172745+0530] [0:01:10.406743] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/5-15pm-cheddar-cheese-powder-seasoning-popcorn-pasta-pizza-nachos-fries/p/itm346fae7855af0?pid=SCMG5GVMSTGPUQD5
-[2024-08-06T12:41:14.596434+0530] [0:01:12.830432] [script.py: 71] > flipkart product not found: https://www.flipkart.com/5-15pm-popcorn-kernels-imported-usa-cheddar-cheese-seasoning-powder-combo/p/itm75dc21ab2870c?pid=SCMGBWPZGU9NBCZF
-[2024-08-06T12:41:16.942875+0530] [0:01:15.176873] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-multivitamin-tablets-men-women-probiotics-supplement/p/itm0601a36115730?pid=VSLEWFUVGAF24VSE
-[2024-08-06T12:41:18.945087+0530] [0:01:17.179085] [script.py: 71] > flipkart product not found: https://www.flipkart.com/novus-natal-care-l-5-mthf-800mcg-tablets-veg-metabolically-active-folic-acid-l-5-methyltetrahydrofolate-calcium-vitamin-b9-methyl-folate-supplement-180/p/itmf3mcdd3xa2nmq?pid=VSLEWFVGEZN3CSNR
-[2024-08-06T12:41:21.018780+0530] [0:01:19.252778] [script.py: 71] > flipkart product not found: https://www.flipkart.com/cf-milk-thistle-extract-amino-acids-multivitamins/p/itmc6e290261fc10?pid=VSLEWGUP4YUZZPMZ
-[2024-08-06T12:41:24.449767+0530] [0:01:22.683765] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-calcium-1200mg-magnesium-zinc-vitamin-d-k2-b12-men-women/p/itmb53a8fa3b97bb?pid=VSLEWYYUSPNHXT3M
-[2024-08-06T12:41:26.752343+0530] [0:01:24.986341] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-calcium-1200mg-magnesium-zinc-vitamin-d-k2-b12-men-women/p/itmb53a8fa3b97bb?pid=VSLEWYYWR44BZSAH
-[2024-08-06T12:41:29.659608+0530] [0:01:27.893606] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-multivitamin-tablets-women-probiotics-mineral-supplement/p/itme30b666541d15?pid=VSLEXJFYGZMDNS2H
-[2024-08-06T12:41:31.340818+0530] [0:01:29.574816] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-biotin-10000-mcg-tablets-skin-nails-hair-growth-women-men/p/itm40019f4d418b5?pid=VSLEZ6CK55SGENNZ
-[2024-08-06T12:41:34.400811+0530] [0:01:32.634809] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-fish-oil-1000mg-omega-3-fatty-acid-double-strength-capsules/p/itm35c4ca89f4a03?pid=VSLF2WSGEE8RVWYC
-[2024-08-06T12:41:36.672283+0530] [0:01:34.906281] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-fish-oil-1000mg-omega-3-fatty-acid-double-strength-capsules/p/itm35c4ca89f4a03?pid=VSLF5K9MSKEH4C7H
-[2024-08-06T12:41:38.893249+0530] [0:01:37.127247] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-biotin-10000-mcg-tablets-skin-nails-hair-growth-women-men/p/itm40019f4d418b5?pid=VSLF6JTXGNUXK9SY
-[2024-08-06T12:41:41.412103+0530] [0:01:39.646101] [script.py: 71] > flipkart product not found: https://www.flipkart.com/carbamide-forte-iron-vitamin-c-folic-acid-tablets-ferrous-ascorbate-fast-acting/p/itm188b2bd174a6e?pid=VSLF84J7ERDWBUZK
-[2024-08-06T12:41:43.984144+0530] [0:01:42.218142] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-probiotics-prebiotics-supplement-better-digestion-gas-relief-capsules/p/itm869f92caa0c1b?pid=VSLF9W2W6AQEUFD6&lid=LSTVSLF9W2W6AQEUFD6EECYX4&marketplace=FLIPKART&q=probiotics&store=hlc%2Fetg%2Fqtw&srno=s_1_33&otracker=search&otracker1=search&fm=Search&iid=b36a1909-a764-4846-aa8f-e6bedb1788b9.VSLF9W2W6AQEUFD6.SEARCH&ppt=sp&ppn=sp&ssid=n3ld7s6ik00000001653886437437&qH=0c961694ffe69c8f
-[2024-08-06T12:41:47.646470+0530] [0:01:45.880468] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-melatonin-10mg-sleeping-tablets/p/itm1cf44cc042601?pid=VSLFA8AS5HHJQXHY
-[2024-08-06T12:41:50.106694+0530] [0:01:48.340692] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-melatonin-10-mg-sleeping-aid-pills/p/itm7f9b4863cf946?pid=VSLFA8BY5FZGMHYM
-[2024-08-06T12:41:52.397417+0530] [0:01:50.631415] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-melatonin-10-mg-sleeping-tablets/p/itm6aeb62ebfd0bd?pid=VSLFA95HXJCVGJRU
-[2024-08-06T12:41:54.853540+0530] [0:01:53.087538] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-probiotic-supplement-30-billion-cfu-16-strains-prebiotics-100mg-per-capsule/p/itm43e2cc4f0e94d?pid=VSLFAYAX2AYH3D4X
-[2024-08-06T12:41:57.404824+0530] [0:01:55.638822] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-vitamin-e-oil-600mg-capsules-face-hair/p/itm899e3e9ac16bc?pid=VSLFD3DYCAQV5GUD
-[2024-08-06T12:41:59.920383+0530] [0:01:58.154381] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/carbamide-forte-coenzyme-q10-coq10-200mg-piperine-5mg/p/itm9de755a325c40?pid=VSLFD9DMFSKYSPGE
-[2024-08-06T12:42:03.300704+0530] [0:02:01.534702] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-flaxseed-oil-capsules-1000mg-cold-pressed-omega-3-6-9/p/itm46b382b7ad10a?pid=VSLFDHEMV726MYJJ
-[2024-08-06T12:42:05.813751+0530] [0:02:04.047749] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-chelated-magnesium-glycinate-citrate-oxide-supplement-1648mg-per-serving/p/itmf2309ccf218cc?pid=VSLFDJ6UUCTNND22
-[2024-08-06T12:42:08.088928+0530] [0:02:06.322926] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-keto-fat-burner-supplements-men-women-garcinia-cambogia-weight-loss/p/itmb57207de5594c?pid=VSLFDJ7B9P5JGGHN
-[2024-08-06T12:42:10.874412+0530] [0:02:09.108410] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-chelated-iron-tablet-women-men-vitamin-c-folic-acid/p/itmbdb7193bc9692?pid=VSLFDRYSGVR7DURH
-[2024-08-06T12:42:14.174548+0530] [0:02:12.408546] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-sleep-well-de-stress-soothing-formula-6mg-melatonin/p/itm783a4932f74c5?pid=VSLFEZBNFGB5TTPB
-[2024-08-06T12:42:16.997661+0530] [0:02:15.231659] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-melatonin-10-mg-tablets-tagara-250mg-sleeping-aid-pills-deep-sleep/p/itmab22c85834be2?pid=VSLFGHYY8HNBKYS5
-[2024-08-06T12:42:20.445811+0530] [0:02:18.679809] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/carbamide-forte-biotin-hair-growth-amla-brahmi-bamboo-extract/p/itm29c07538c5f49?pid=VSLFGNFP8ZHUMNEZ
-[2024-08-06T12:42:22.865309+0530] [0:02:21.099307] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-joint-support-supplement-glucosamine-vitamins-3986mg/p/itma8e21ed13cf27?pid=VSLFGNFQDXZYUWYZ
-[2024-08-06T12:42:25.197527+0530] [0:02:23.431525] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/carbamide-forte-garcinia-cambogia-supplement-2500mg-5mg-piperine-60-hca-per-serving/p/itmb0b3969be93a0?pid=VSLFGNW4AGBARXDY
-[2024-08-06T12:42:27.972078+0530] [0:02:26.206076] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-100-certified-organic-spirulina-tablets/p/itm4875643033ac3?pid=VSLFGWBZG3GQRNKG
-[2024-08-06T12:42:30.497666+0530] [0:02:28.731664] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-melatonin-5mg-sleeping-tablets-tagara-125mg/p/itm600852dfdbf3d?pid=VSLFHTYRZZ76KGW6
-[2024-08-06T12:42:33.217412+0530] [0:02:31.451410] [script.py: 71] > flipkart product not found: https://www.flipkart.com/cf-melatonin-3mg-tagara-75mg-sleeping-aid-tablets/p/itmb4c1293d82d69?pid=VSLFHV6EYPUHYSAG
-[2024-08-06T12:42:36.014510+0530] [0:02:34.248508] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-triple-strength-fish-oil-1400mg-omega-3-900mg-capsules-men-women/p/itm7f58de0195057?pid=VSLFHZZTMMUGGFR6
-[2024-08-06T12:42:38.245093+0530] [0:02:36.479091] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/carbamide-forte-biotin-supplement-50-multivitamin-ingredients-women-men/p/itm09934ca78906d?pid=VSLFJQFEUDYMBRV6
-[2024-08-06T12:42:41.529738+0530] [0:02:39.763736] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-salmon-fish-oil-omega-3-capsule-1000-mg-epa-180mg-dha-120/p/itme779cbc8b6db5?pid=VSLFKMU8E9ZYXHAJ
-[2024-08-06T12:42:44.900371+0530] [0:02:43.134369] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-prenatal-multivitamins-women-pregnancy-supplement/p/itm5d4fa1c304a16?pid=VSLFKMUCMZRTEKPR
-[2024-08-06T12:42:47.829899+0530] [0:02:46.063897] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-probiotics-supplement-prebiotics-30-billion-women-men/p/itmff6d066913bb3?pid=VSLFKZ8NMSSHXSQG
-[2024-08-06T12:42:50.231185+0530] [0:02:48.465183] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-multivitamin-tablets-men-women-probiotics/p/itmff8e7935e6ac5?pid=VSLFM8HYGJAQNJSH
-[2024-08-06T12:42:52.648521+0530] [0:02:50.882519] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-multivitamin-tablets-women-probiotics-minerals-supplement/p/itm0a3a668611854?pid=VSLFM8JDHFHUWBQU
-[2024-08-06T12:42:55.635727+0530] [0:02:53.869725] [script.py: 71] > flipkart product not found: https://www.flipkart.com/carbamide-forte-vitamin-d3-400-iu-k2-mk7-55mcg-supplement/p/itm66bf38d7ac6af?pid=VSLFM8WMJGGUVRRN
-[2024-08-06T12:42:57.924084+0530] [0:02:56.158082] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-multivitamin-sports-bcaa-amino-acids-probiotics-antioxidants/p/itma385ca3df3490?pid=VSLFMKSZH7SBFHGS
-[2024-08-06T12:43:00.500385+0530] [0:02:58.734383] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-vitamin-d3-400-iu-spray-supplement-adjustable-dose/p/itmbfa060e2a0609?pid=VSLFMYPFG8CCYBHF
-[2024-08-06T12:43:03.713605+0530] [0:03:01.947603] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-multivitamin-gummies-kids-adults-superfoods-prebiotics/p/itm91e3d62188775?pid=VSLFNMBNRNMDDZUU
-[2024-08-06T12:43:06.874809+0530] [0:03:05.108807] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/carbamide-forte-cold-pressed-organic-flax-seeds-oil-capsules-1250mg-omega-3-6-9/p/itmabdebe54a5f58?pid=VSLFNWEUTYWZWQ3H
-[2024-08-06T12:43:10.182393+0530] [0:03:08.416391] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-l-carnitine-tartrate-supplement-fat-loss-1000mg-men-women/p/itm70419be13c5d6?pid=VSLFS8F48YXCEZK7
-[2024-08-06T12:43:11.433470+0530] [0:03:09.667468] [script.py: 71] > flipkart product not found: https://www.flipkart.com/cf-vitamin-e-oil-400mg-capsules-face-hair/p/itm25e5572bb3e65?pid=VSLFS8FK5WVBBZSA
-[2024-08-06T12:43:14.694139+0530] [0:03:12.928137] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-salmon-fish-oil-omega-3-capsule-1000-mg-epa-180mg-dha-120/p/itme779cbc8b6db5?pid=VSLFSA8YXXGN375H
-[2024-08-06T12:43:16.997713+0530] [0:03:15.231711] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-triple-strength-fish-oil-1400mg-omega-3-900mg-capsules-men-women/p/itm7f58de0195057?pid=VSLFSNZ9RHKXVQMT
-[2024-08-06T12:43:19.974296+0530] [0:03:18.208294] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-l-carnitine-tartrate-supplement-fat-loss-1000mg-men-women/p/itm70419be13c5d6?pid=VSLFSVDCNYRZXZB2
-[2024-08-06T12:43:22.326451+0530] [0:03:20.560449] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-l-arginine-1000mg-capsules-per-serving/p/itm89ae5d7718b2c?pid=VSLFSZZU3ZEHAFCM
-[2024-08-06T12:43:24.925179+0530] [0:03:23.159177] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-garcinia-cambogia-3000mg-weight-loss/p/itmf85e353ef4bab?pid=VSLFTJQYWQKQDDB7
-[2024-08-06T12:43:27.269622+0530] [0:03:25.503620] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-natural-vitamin-c-amla-extract-1000mg-zinc-immunity-boost-skincare/p/itm8e96172adfe92?pid=VSLFTJUSNMJ8M7FP
-[2024-08-06T12:43:29.524203+0530] [0:03:27.758201] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-natural-vitamin-c-tablets-1000-mg-amla-extract-zinc-immunity-skincare/p/itm0ec1554379202?pid=VSLFTJW2PJXYQHSH
-[2024-08-06T12:43:32.265702+0530] [0:03:30.499700] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-multivitamin-gummies-women-probiotics-immunity-23-ingredients/p/itm6654b830dd7a6?pid=VSLFTJXD6ZG9KYGX
-[2024-08-06T12:43:35.027869+0530] [0:03:33.261867] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-fish-oil-multivitamin-omega-3-1194-8mg-30-ingredients/p/itm8a9aab75b6f1e?pid=VSLFTJXKNXGN3VZU
-[2024-08-06T12:43:36.296571+0530] [0:03:34.530569] [script.py: 71] > flipkart product not found: https://www.flipkart.com/cf-brain-booster-tonic-supplement-brahmi-ginkgo-biloba-memory-focus/p/itmcd6a0f44736f5?pid=VSLFTU646NTWSQGS
-[2024-08-06T12:43:38.567025+0530] [0:03:36.801023] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-chelated-magnesium-glycinate-2408mg-per-serving-supplement/p/itm0ef5b84b35321?pid=VSLFU2J6PCZKZAED
-[2024-08-06T12:43:41.153524+0530] [0:03:39.387522] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-chelated-magnesium-glycinate-citrate-oxide-supplement-1814-18mg/p/itm9b6e5810978de?pid=VSLFUG38DPX4VYZR
-[2024-08-06T12:43:43.696515+0530] [0:03:41.930513] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-cold-pressed-flax-seed-oil-11500mg-omega-3-6-9-weight-loss/p/itm24119a7b9b9e3?pid=VSLFUTGYWJHZ2PEX
-[2024-08-06T12:43:46.476476+0530] [0:03:44.710474] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-fish-oil-2500mg-omega-3-1500mg-capsules-men-women-900mg-epa-600mg-dha/p/itm2cf19e9f3fda8?pid=VSLFUYP5H9PZGTY3
-[2024-08-06T12:43:49.239299+0530] [0:03:47.473297] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-organic-mct-oil-c8-usa-cold-pressed-coconut-hair/p/itmd96c804cb39b6?pid=VSLFUYP5J9AYTW3H
-[2024-08-06T12:43:51.976830+0530] [0:03:50.210828] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-l-carnitine-liquid-supplement-fat-loss-1500mg-per-serving/p/itm34087f2cfec9e?pid=VSLFUYZJVT4FFDWB
-[2024-08-06T12:43:54.763686+0530] [0:03:52.997684] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-chelated-magnesium-glycinate-2408mg-per-serving-supplement/p/itm0ef5b84b35321?pid=VSLFUYZKPNVGZKWU
-[2024-08-06T12:43:57.512225+0530] [0:03:55.746223] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-curcumin-piperine-tablets-immunity-boosters-adults/p/itm4b76318a66428?pid=VSLFV3GQHPK649RG
-[2024-08-06T12:43:59.733003+0530] [0:03:57.967001] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-curcumin-piperine-tablets-immunity-support/p/itme7dfb887f0df8?pid=VSLFV3JBDPGJKFWP
-[2024-08-06T12:44:02.397073+0530] [0:04:00.631071] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-joint-support-supplement-glucosamine-boswellia-bromelain-1600mg/p/itmb76fe3c3a5a6f?pid=VSLFV3MAZFAGNYFF
-[2024-08-06T12:44:04.912847+0530] [0:04:03.146845] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-keto-fat-burner-tablets-garcinia-cambogia-women-men-2100mg/p/itm5185bd99adcc5?pid=VSLFV3MMJC7GYDGH
-[2024-08-06T12:44:07.160987+0530] [0:04:05.394985] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-nitric-oxide-booster-l-arginine-supplement-1200mg/p/itmd43ad27ed3e5c?pid=VSLFV3N8XCJHZCNG
-[2024-08-06T12:44:09.937617+0530] [0:04:08.171615] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-multivitamin-tablets-men-probiotics-minerals-supplement/p/itm0f37df468624e?pid=VSLFV5QWV7P6U6XP
-[2024-08-06T12:44:12.247758+0530] [0:04:10.481756] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-coq10-coenzyme-q10-120mg-capsule-piperine-5mg-supplement/p/itm436a9c8482784?pid=VSLFV5ZSFVNGSZRN
-[2024-08-06T12:44:14.779068+0530] [0:04:13.013066] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-immunity-booster-tablets-vitamic-c-probiotics-adults-kids/p/itmfa7a1c5671ff5?pid=VSLFV6RNSGTMVM7X
-[2024-08-06T12:44:17.101562+0530] [0:04:15.335560] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-salmon-fish-oil-1892-5mg-capsules-multivitamin-omega-3-63-ingredients/p/itmfc4afb980616c?pid=VSLFVF2HXWC4WGDU
-[2024-08-06T12:44:19.640416+0530] [0:04:17.874414] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-keto-fat-burner-tablets-women-men-garcinia-cambogia-weight-loss/p/itmf3b4b423c4b50?pid=VSLFVGPY7AAFWTQN
-[2024-08-06T12:44:21.868928+0530] [0:04:20.102926] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-pre-probiotic-supplement-50-billion-cfu-150-mg/p/itmbd821f470a03c?pid=VSLFVYY9JKJYG4DB
-[2024-08-06T12:44:24.361636+0530] [0:04:22.595634] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-immunity-booster-vitamin-c-tablets-probiotics-supplement-adults-kids/p/itm3028502b768fa?pid=VSLFWE4RC6MH2PYT
-[2024-08-06T12:44:26.625739+0530] [0:04:24.859737] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-testosterone-booster-supplement-tribulus-terrestris-1000mg/p/itmdccf85ed9f591?pid=VSLFWE4RZEHZWWGG
-[2024-08-06T12:44:29.154686+0530] [0:04:27.388684] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-sleep-aid-supplement-melatonin-10mg-gummies/p/itm60f62eb726fd0?pid=VSLFWSCGHJDNBQHZ
-[2024-08-06T12:44:31.474534+0530] [0:04:29.708532] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-multivitamin-tablets-men-probiotics-supplement-energy-immunity/p/itmce51b913d7926?pid=VSLFWW35QQ9EXBNV
-[2024-08-06T12:44:34.192361+0530] [0:04:32.426359] [script.py: 71] > flipkart product not found: https://www.flipkart.com/cf-carbamide-forte-melatonin-deep-sleep-spray-tagara-chamomile-50-ml/p/itm10e7742e944f7?pid=VSLFWZ3HWMCGZY69
-[2024-08-06T12:44:36.376906+0530] [0:04:34.610904] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-plant-based-multivitamin-tablets-men-women-81-ingredients/p/itm26729af5e50af?pid=VSLFXBQA6ZJJPQZX
-[2024-08-06T12:44:38.713759+0530] [0:04:36.947757] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-liver-support-supplement-milk-thistle-extract-600mg-amino-acids/p/itm42f0393652bd8?pid=VSLFXSYFASRDB5HR
-[2024-08-06T12:44:40.979757+0530] [0:04:39.213755] [script.py: 71] > flipkart product not found: https://www.flipkart.com/cf-immunity-booster-gummies-adults-kids-vitamin-c-herbs-60/p/itm1129083b905c2?pid=VSLFYGJZHHKTQMVN
-[2024-08-06T12:44:43.433232+0530] [0:04:41.667230] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-omega-3-fish-oil-1250mg-capsules-supplement/p/itm8378b5ddd11b8?pid=VSLFZ2ZDYZ8MZAZZ
-[2024-08-06T12:44:46.576992+0530] [0:04:44.810990] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-fish-oil-1250mg-capsules-omega-3-supplements/p/itm610b09c935746?pid=VSLFZ33SUCHT4RCV
-[2024-08-06T12:44:49.141595+0530] [0:04:47.375593] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-chelated-iron-folic-acid-tablets-women-men/p/itm3d0e2d9e968c4?pid=VSLFZ35YMH39WWAZ
-[2024-08-06T12:44:51.497851+0530] [0:04:49.731849] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-evening-primrose-oil-capsules-1250mg-100-pure-cold-pressed-epo-10-gla/p/itmdae012f101042?pid=VSLFZ999SNPBBK55
-[2024-08-06T12:44:54.188773+0530] [0:04:52.422771] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-multivitamin-gummies-kids-adults-superfoods-prebiotics/p/itm91e3d62188775?pid=VSLFZD7A6BJ8GVUG
-[2024-08-06T12:44:56.880269+0530] [0:04:55.114267] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-biotin-10000-mcg-gummies-hair-skin-nails-strawberry-orange-flavour/p/itma8b23b197d866?pid=VSLFZVGDKJM9SWZF
-[2024-08-06T12:44:59.134427+0530] [0:04:57.368425] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-biotin-10000-mcg-gummies-hair-skin-nails-strawberry-orange-flavour/p/itma8b23b197d866?pid=VSLFZVGDP4ZZMHDW
-[2024-08-06T12:45:01.552601+0530] [0:04:59.786599] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-plant-based-veg-vitamin-d3-k2-mk7-supplement/p/itm8b14fcccde033?pid=VSLG43TGTF8S4SZB
-[2024-08-06T12:45:04.512678+0530] [0:05:02.746676] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/litvit-salmon-fish-oil-2500mg-capsules-omega-3-multivitamin-men-women/p/itm9b99a91142cd5?pid=VSLG43TJCBTZKHN2
-[2024-08-06T12:45:07.115126+0530] [0:05:05.349124] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/litvit-testosterone-booster-men-tribulus-terrestris-1000mg-ashwagandha-tablets/p/itma145330185479?pid=VSLG44BGTND8FFUE
-[2024-08-06T12:45:09.774204+0530] [0:05:08.008202] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-l-glutathione-vitamin-c-amla-extract-combo-skin-30-tablets-each/p/itm99b39765d8ab8?pid=VSLG44YMTFWHYFGK
-[2024-08-06T12:45:12.376165+0530] [0:05:10.610163] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/litvit-melatonin-10-mg-tablets-tagara-250mg-sleeping-aid-pills-deep-sleep/p/itm8f020ea7b64bd?pid=VSLG44YMXFHKC5AU
-[2024-08-06T12:45:15.064783+0530] [0:05:13.298781] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/litvit-multivitamin-tablets-probiotics-men-women/p/itmf8678e72fc95a?pid=VSLG459GFAJEKEVX
-[2024-08-06T12:45:17.844184+0530] [0:05:16.078182] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/litvit-biotin-10000mcg-multivitamin-keratin-bamboo-tablets-hair-growth/p/itmb2ef132049712?pid=VSLG45BKURYSFVYV
-[2024-08-06T12:45:20.881739+0530] [0:05:19.115737] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-veg-dha-omega-3-250mg-gummies-men-women-kids-no-fish-oil-used/p/itm4415435dc99d8?pid=VSLG5K4FQCCQFZZG
-[2024-08-06T12:45:23.226378+0530] [0:05:21.460376] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-veg-dha-omega-3-1000mg-tablets-men-women-no-fish-oil-used/p/itm917ed9a3a61ec?pid=VSLG5KYG7ZYNGWVA
-[2024-08-06T12:45:25.505627+0530] [0:05:23.739625] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-hydrolyzed-collagen-peptides-6000mg-type-1-3-powder/p/itm8d537cf42c9e2?pid=VSLG5RPRW9R6R6NW
-[2024-08-06T12:45:28.265963+0530] [0:05:26.499961] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-hydrolyzed-multi-collagen-peptides-all-5-types-powder/p/itm3225d7d53d6f6?pid=VSLG5SXR2VDJGADS
-[2024-08-06T12:45:31.404516+0530] [0:05:29.638514] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-hydrolyzed-marine-collagen-peptides-3000mg-biotin-type-1-powder/p/itm46dabed17afa2?pid=VSLG5SXRHNAZ24UV
-[2024-08-06T12:45:34.207760+0530] [0:05:32.441758] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-veg-prenatal-multivitamin-pregnancy-dha-300mg-women/p/itm0988c30be2bd8?pid=VSLG5SXRN4HPSDNV
-[2024-08-06T12:45:36.608303+0530] [0:05:34.842301] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-melatonin-10mg-gummies-tagara-l-tryptophan-sleep-aid-supplement/p/itmcbacda11a3b64?pid=VSLG5TW9YX6J8THR
-[2024-08-06T12:45:39.324914+0530] [0:05:37.558912] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/litvit-joint-support-suppmenent-pain-tablets-glucosamine-chondroitin-msm/p/itm1fdc103f48548?pid=VSLG62P9FTQSACJP
-[2024-08-06T12:45:42.550135+0530] [0:05:40.784133] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/litvit-salmon-omega-3-fish-oil-1000mg-capsules-softgels/p/itm194f8d362e53d?pid=VSLG62PCYJ58V3ZH
-[2024-08-06T12:45:45.753437+0530] [0:05:43.987435] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/litvit-vitamin-c-tablets-1000mg-amla-extract-zinc-glowing-skin-immunity/p/itm0f9874026acc1?pid=VSLG62PMFD6DHVZ7
-[2024-08-06T12:45:47.705753+0530] [0:05:45.939751] [script.py: 71] > flipkart product not found: https://www.flipkart.com/litvit-multivitamin-gummies-kids-adults-superfoods-prebiotics-immunity/p/itme2d5e459be771?pid=VSLG62R6JAU2M7WX
-[2024-08-06T12:45:49.737797+0530] [0:05:47.971795] [script.py: 71] > flipkart product not found: https://www.flipkart.com/litvit-l-carnitine-tartrate-1000mg-per-serving-capsules-fat-loss-supplement/p/itm17a914279a42c?pid=VSLG62R7GPKUUHEX
-[2024-08-06T12:45:52.408926+0530] [0:05:50.642924] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/litvit-probiotics-50-billion-capsules-prebiotics-supplement-men-women/p/itmfca3e5846ec48?pid=VSLG62VMVGBS4JKX
-[2024-08-06T12:45:55.454591+0530] [0:05:53.688589] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/litvit-calcium-vitamin-d3-tablets-magnesium-zinc-alfalfa-women-men/p/itmd720700cb9e2c?pid=VSLG62VPVYRVYFEP
-[2024-08-06T12:45:57.690161+0530] [0:05:55.924159] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/litvit-cold-pressed-flaxseed-oil-1250mg-capsules-hair-growth-weight-loss/p/itmf59a566bf4029?pid=VSLG62VQD3KRFZU7
-[2024-08-06T12:46:00.682330+0530] [0:05:58.916328] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/litvit-spirulina-2000mg-per-serving-tablets-certified-100-organic-powder/p/itm00b68b4b5bcc2?pid=VSLG62ZDJYQHBKHM
-[2024-08-06T12:46:03.827337+0530] [0:06:02.061335] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/litvit-triple-strength-fish-oil-1400mg-capsules-omega-3-900mg-multivitamin-supplement/p/itm7e8b59e2441b5?pid=VSLG62ZUWNB4UXZ2
-[2024-08-06T12:46:06.093701+0530] [0:06:04.327699] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/litvit-l-arginine-1000mg-per-serving-capsules-nitric-oxide-booster-supplement/p/itma96b4ed0b887c?pid=VSLG632ZKY77USX8
-[2024-08-06T12:46:08.552655+0530] [0:06:06.786653] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/litvit-vitamin-d3-k2-tablets-plant-based-veg-d-600-iu-mk7/p/itmb7b181a18acda?pid=VSLG63394YK6XT4D
-[2024-08-06T12:46:10.936803+0530] [0:06:09.170801] [script.py: 71] > flipkart product not found: https://www.flipkart.com/litvit-natural-biotin-gummies-hair-10000mcg-sesbania-hyaluronic-acid-amla/p/itm46ffe893e6c50?pid=VSLG63Z3G7PJWZA2
-[2024-08-06T12:46:12.116256+0530] [0:06:10.350254] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-vitamin-b12-tablets-1500mcg-active-form-methylcobalamin-supplements/p/itm20909d300922f?pid=VSLG68GPZAWJZM9Y
-[2024-08-06T12:46:14.653735+0530] [0:06:12.887733] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-hydrolyzed-collagen-powder-type-1-3-peptides-unflavored/p/itmee485d67bbc9f?pid=VSLG6WZFCAGG4JSJ
-[2024-08-06T12:46:17.023331+0530] [0:06:15.257329] [script.py: 71] > flipkart product not found: https://www.flipkart.com/cf-vitamin-c-gummies-amla-extract-zinc-immunity-orange-flavour/p/itm53a2f7633a20a?pid=VSLG6Z5URB92C8MC
-[2024-08-06T12:46:19.303888+0530] [0:06:17.537886] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-multivitamin-tablets-men-women-probiotics-supplement/p/itm0601a36115730?pid=VSLG74M9GHUYUYJV
-[2024-08-06T12:46:22.007271+0530] [0:06:20.241269] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-triple-strength-omega-3-fish-oil-1400mg-multivitamin-capsule-men-women/p/itm3b523d0b47727?pid=VSLG775H2GRUQFTB
-[2024-08-06T12:46:24.228834+0530] [0:06:22.462832] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-coq10-coenzyme-q10-120mg-piperine-6mg/p/itmbdea403a21b4d?pid=VSLG7775KHERBDEX
-[2024-08-06T12:46:27.040374+0530] [0:06:25.274372] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-vitamin-d3-k2-b12-gummies-women-men-kids/p/itmf0989cc77e241?pid=VSLG7B7P7GZWFZCY
-[2024-08-06T12:46:29.606493+0530] [0:06:27.840491] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-marine-collagen-powder-skin-women-men-supplement/p/itm9edfd86342cf7?pid=VSLG7B8CZ47FUGFQ
-[2024-08-06T12:46:32.192934+0530] [0:06:30.426932] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-apple-cider-vinegar-gummies-acv-mother-vitamins/p/itmb7dcf22ed57e1?pid=VSLG7CE8ZBVYK86Z
-[2024-08-06T12:46:35.056130+0530] [0:06:33.290128] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-ashwagandha-gummies-vitamin-d-relaxation-focus-mixed-fruit-flavour/p/itm642eb3266fe6b?pid=VSLG7CFK3NUCFFZV
-[2024-08-06T12:46:37.022305+0530] [0:06:35.256303] [script.py: 71] > flipkart product not found: https://www.flipkart.com/meltvit-multivitamin-women-strips-ashwagandha-prebiotics-immunity-hair/p/itmdd69fbffb8f98?pid=VSLG84C8UHYYB7NA
-[2024-08-06T12:46:39.049736+0530] [0:06:37.283734] [script.py: 71] > flipkart product not found: https://www.flipkart.com/meltvit-plant-based-biotin-10000mcg-sesbania-grandiflora-vitamins-hair-growth/p/itm6f860c46c8edf?pid=VSLG84D5KQFCUZER
-[2024-08-06T12:46:41.144599+0530] [0:06:39.378597] [script.py: 71] > flipkart product not found: https://www.flipkart.com/meltvit-melatonin-10mg-tagar-better-sleep-aid-supplement/p/itmfd5797331dce5?pid=VSLG853BHXSGGPBN
-[2024-08-06T12:46:43.348506+0530] [0:06:41.582504] [script.py: 71] > flipkart product not found: https://www.flipkart.com/meltvit-melatonin-10mg-strips-better-sleep-supplement/p/itmed34be3411473?pid=VSLG853Z8EXZA5JH
-[2024-08-06T12:46:45.390200+0530] [0:06:43.624198] [script.py: 71] > flipkart product not found: https://www.flipkart.com/meltvit-probiotics-5-billion-prebiotics-supplement-women-men/p/itm7ee1a51f8f580?pid=VSLG853ZRHVUWRNA
-[2024-08-06T12:46:47.750793+0530] [0:06:45.984791] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-100-organic-ashwagandha-powder-vitality-strength-stress-management/p/itmc7c8fbdd7a629?pid=VSLG8KZ4CFXJAXRU
-[2024-08-06T12:46:50.073192+0530] [0:06:48.307190] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-100-usda-certified-organic-spirulina-powder-immunity-digestion-skin-health/p/itmf4878087b2911?pid=VSLG9KCMDZHTGNZG
-[2024-08-06T12:46:52.841348+0530] [0:06:51.075346] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-pcos-supplement-40-1-ratio-2000mg-myo-inositol-50mg-d-chiro-inositol/p/itma4c3c067cc05b?pid=VSLG9ZY3NMGSXSW4
-[2024-08-06T12:46:55.480318+0530] [0:06:53.714316] [script.py: 71] > flipkart product not found: https://www.flipkart.com/cf-100-organic-green-coffee-beans-powder-detoxification-usda-certified/p/itmdab64cb862b0d?pid=VSLG9ZYGXA2E5AZG
-[2024-08-06T12:46:58.063884+0530] [0:06:56.297882] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-100-organic-moringa-powder-oleifera-usda-certified/p/itmb3bd2a89b0eca?pid=VSLG9ZYTC9YZBUDK
-[2024-08-06T12:47:00.346719+0530] [0:06:58.580717] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-100-veg-collagen-builder-plant-based-support-supplement-skin/p/itm273663e4b15e1?pid=VSLGADGXQHKZJS99
-[2024-08-06T12:47:03.236171+0530] [0:07:01.470169] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-100-organic-wheat-grass-powder-usda-certified-wheatgrass/p/itm59fe2dfc2b535?pid=VSLGAFZWSYVGDCDA
-[2024-08-06T12:47:05.600038+0530] [0:07:03.834036] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-zma-supplement-men-women-muscle-recovery-tablets-strength/p/itm5f3f450922da7?pid=VSLGFX369GXFRRCV
-[2024-08-06T12:47:08.016675+0530] [0:07:06.250673] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-melatonin-5mg-spray-per-serving-sleeping-aid/p/itm482ae51e1bd7d?pid=VSLGYJUE93GGSC4R
-[2024-08-06T12:47:10.381161+0530] [0:07:08.615159] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-make-your-own-alkaline-water-drops-ph-booster-20-litres-per-bottle-mineral/p/itm3c136e4bee146?pid=WERG5VYZWXBHX3AM
-[2024-08-06T12:47:12.421421+0530] [0:07:10.655419] [script.py: 71] > flipkart product not found: https://www.flipkart.com/5-15pm-basil-seeds-100-organic-raw-seeds-tukmaria-seeds-sabja-eating/p/itm6dbdcbf004fbc?pid=EDSGFQNDRHAHUUVP
-[2024-08-06T12:47:14.496585+0530] [0:07:12.730583] [script.py: 71] > flipkart product not found: https://www.flipkart.com/5-15pm-basil-seeds-100-organic-raw-seeds-tukmaria-seeds-sabja-eating/p/itm6dbdcbf004fbc?pid=EDSGFQNDRHAHUUVP
-[2024-08-06T12:47:17.051836+0530] [0:07:15.285834] [script.py: 71] > flipkart product not found: https://www.flipkart.com/5-15pm-xanthan-gum-powder-cooking-baking-thickening-binding-agent-food-stabilizer-baking/p/itma3f598591b97b?pid=BKIGG7FNHWFGQWPQ
-[2024-08-06T12:47:20.438856+0530] [0:07:18.672854] [script.py: 71] > flipkart product not found: https://www.flipkart.com/5-15pm-pure-gond-katira-natural-edible-gum-tragacanth-gum-high-cooling-properties-dried-gum/p/itm45b949d3febed?pid=NDFGG7FGPNG6NWFU
-[2024-08-06T12:47:23.205322+0530] [0:07:21.439320] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/5-15pm-cinnamon-powder-weight-loss-dalchini-100-pure-natural/p/itm47b2227273ea9?pid=SCMGGG32C59ZNTHZ
-[2024-08-06T12:47:25.571129+0530] [0:07:23.805127] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/5-15pm-ceylon-cinnamon-sticks-dalchini-sticks-world-s-finest-srilankan-stick/p/itm55f0644dcd49f?pid=SCMGHJ5C2VPD99RE
-[2024-08-06T12:47:29.249626+0530] [0:07:27.483624] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/5-15pm-raw-sunflower-seeds-eating-high-protein-fibre-organic-unroasted/p/itmb37a6e125fde2?pid=EDSGHJ5TVNKQZQA9
-[2024-08-06T12:47:31.265545+0530] [0:07:29.499543] [script.py: 71] > flipkart product not found: https://www.flipkart.com/5-15pm-raw-watermelon-seeds-eating-tarbuj-seeds-magaj-seed-water-melon/p/itmfbd7c66d9a793?pid=EDSGHJ5CY2ATCTAQ
-[2024-08-06T12:47:33.177091+0530] [0:07:31.411089] [script.py: 71] > flipkart product not found: https://www.flipkart.com/5-15pm-raw-pumpkin-seeds-eating-immunity-booster-seeds-organic-unroasted/p/itm5f2218b3c118a?pid=EDSGHJ5FNFZYEXMF
-[2024-08-06T12:47:35.355858+0530] [0:07:33.589856] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-collagen-biotin-gummies-supplement-skin-gummies-women/p/itm5b16b30f8f7e7?pid=VSLGGJU269R3YXUS
-[2024-08-06T12:47:37.641671+0530] [0:07:35.875669] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-collagen-gummies-skin-supplement-women/p/itm9952769b74044?pid=VSLGKN8MEMTTYTZG
-[2024-08-06T12:47:39.882983+0530] [0:07:38.116981] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-isotonic-supplement-energy-drink-electrolyte-powder-bcaa-glutamine-bars/p/itm3c4a3fffd1006?pid=PSLGHYFGYXUPYSH4
-[2024-08-06T12:47:42.154164+0530] [0:07:40.388162] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-alpha-lipoic-acid-300-mg-capsules-vitamin-b12-lycopene-ala-supplement/p/itm6c90344dfd529?pid=VSLGG9NBQ5A4FQGN
-[2024-08-06T12:47:44.563699+0530] [0:07:42.797697] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-eaa-9000mg-supplement-bcaa-5000mg-men-women-essential-amino-acids/p/itmcec5287ce47d8?pid=PSLGG9S7YZZKKAPK
-[2024-08-06T12:47:47.188214+0530] [0:07:45.422212] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-l-arginine-powder-3000mg-nitric-oxide-supplement-l-supplement/p/itmc89dce82f0156?pid=VSLGG9T3ZMV7QZMB
-[2024-08-06T12:47:49.522504+0530] [0:07:47.756502] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-l-glutamine-powder-5000mg-supplement-men-post-workout-recovery/p/itm567821bd99faf?pid=VSLGGJU3KVRCSUSM
-[2024-08-06T12:47:51.947971+0530] [0:07:50.181969] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-l-carnitine-liquid-3300mg-tartrate-supplement-fat-loss/p/itmdbf09e14addfc?pid=VSLGGR57Q2H3QFTM
-[2024-08-06T12:47:54.149785+0530] [0:07:52.383783] [script.py: 71] > flipkart product not found: https://www.flipkart.com/cf-l-carnitine-powder-pre-post-workout-tartrate-2000mg/p/itm4561d6672ddb8?pid=VSLGG9TWKKQSEUBJ
-[2024-08-06T12:47:56.494566+0530] [0:07:54.728564] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-resveratrol-250mg-grape-seed-extract-max-absorption/p/itmd36e07a3b1948?pid=VSLGGX4FM2JZEFNB
-[2024-08-06T12:47:59.102746+0530] [0:07:57.336744] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-cold-pressed-kalonji-oil-hair-growth-black-seed-drinking/p/itm562736e81a56c?pid=HOLGG63WGJUJ4VXZ
-[2024-08-06T12:48:01.435637+0530] [0:07:59.669635] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-n-acetyl-cysteine-600mg-supplements-vitamin-c-80mg-nac-supplement/p/itmd88a0555ff77d?pid=VSLGGGG4HQJAZFPM
-[2024-08-06T12:48:03.847038+0530] [0:08:02.081036] [script.py: 71] > flipkart product not found: https://www.flipkart.com/cf-vegan-protein-powder-plant-based-pea-isolate-plant-based/p/itmefe0a3b7449c7?pid=PSLGG6H2S5GFZWFK
-[2024-08-06T12:48:06.080357+0530] [0:08:04.314355] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/wagzee-dry-shampoo-dogs-cats-waterless-spray-cat-conditioning-fragrance-free-dog/p/itm4f95a388aa7c6?pid=PSOGKNDYJBUGCYGG
-[2024-08-06T12:48:08.316736+0530] [0:08:06.550734] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/wagzee-tick-shampoo-dogs-dog-ticks-fleas-remover-spray-flea-na/p/itmefea6c60c1c78?pid=PSOGKNDNXWRWU3BA
-[2024-08-06T12:48:10.488845+0530] [0:08:08.722843] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-pcos-supplement-women-40-1-ratio-myo-d-chiro-inositol-pcos-gummies/p/itmf3659a3a50eeb?pid=VSLGH4P5XZT3HQHQ
-[2024-08-06T12:48:12.662868+0530] [0:08:10.896866] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-amla-powder-hair-growth-face-skin-100-natural-indian-gooseberry/p/itm1eec6ec98bac9?pid=HTTGMV469B45CJC3
-[2024-08-06T12:48:15.253721+0530] [0:08:13.487719] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-eye-care-supplement-lutein-zeaxanthin-vision-support-health/p/itmb292e3e814f7c?pid=VSLGH4P5ZZW5PNQT
-[2024-08-06T12:48:17.685368+0530] [0:08:15.919366] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-jamun-seeds-powder-support-healthy-blood-sugar-levels/p/itm41c6b649d88cf?pid=VSLGH636TRJVAFRM
-[2024-08-06T12:48:20.828707+0530] [0:08:19.062705] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-creatine-monohydrate-powder-supplement-lean-muscle-strength/p/itm7ea92670bc6df?pid=PSLGMNM7FDGUYXKA
-[2024-08-06T12:48:23.827843+0530] [0:08:22.061841] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-bcaa-5000mg-supplement-men-women-powder-ideal-2-1-1-ratio/p/itmf49deb09e44b4?pid=PSLGMNMYTJ9YAZFP
-[2024-08-06T12:48:26.144358+0530] [0:08:24.378356] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/cf-bcaa-5000mg-supplement-men-women-powder-ideal-2-1-1-ratio/p/itmf49deb09e44b4?pid=PSLGMNMYGVFU9FZ8
-[2024-08-06T12:48:28.051390+0530] [0:08:26.285388] [script.py: 71] > flipkart product not found: https://www.flipkart.com/cf-bcaa-pro-supplement-men-women-bcaa-powder-l-glutamine-l-citrulline/p/itm1f3d1211d0d19?pid=PSLGMZGNYTWQPUDX
-[2024-08-06T12:48:30.151949+0530] [0:08:28.385947] [script.py: 71] > flipkart product not found: https://www.flipkart.com/cf-bcaa-pro-supplement-men-women-bcaa-powder-l-glutamine-l-citrulline/p/itm1f3d1211d0d19?pid=PSLGMNHM6J8SMEFD
-[2024-08-06T12:48:32.263335+0530] [0:08:30.497333] [script.py: 71] > flipkart product not found: https://www.flipkart.com/cf-vegan-protein-powder-plant-based-pea-isolate-plant-based/p/itm585142f26e8fb?pid=PSLGKN896QZKGHKX
-[2024-08-06T12:48:34.241173+0530] [0:08:32.475171] [script.py: 71] > flipkart product not found: https://www.flipkart.com/cf-vegan-protein-powder-plant-based-pea-isolate-plant-based/p/itm8fec9626d9c00?pid=PSLGKN86WAFHYCCW
-[2024-08-06T12:48:36.298983+0530] [0:08:34.532981] [script.py: 71] > flipkart product not found: https://www.flipkart.com/cf-vegan-protein-powder-plant-based-pea-isolate-plant-based/p/itmacfa2980f58c0?pid=PSLGG9THZKFNGDFD
-[2024-08-06T12:48:38.612808+0530] [0:08:36.846806] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/carbamide-forte-creatine-monohydrate-powder-supplement-lean-muscle-strength/p/itm16536f9b5ebca?pid=PSLGTBG6RFF6WRBJ
-[2024-08-06T12:48:41.777488+0530] [0:08:40.011486] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/carbamide-forte-vegan-protein-powder-plant-based-pea-digestive-enzymes-plant-based/p/itm99c404ed703c7?pid=PSLGPRNVRHB2XEEV
-[2024-08-06T12:48:44.699241+0530] [0:08:42.933239] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/5-15pm-gulkand-300gm-premium-rose-petal-jam-sun-cooked-damask-300-g/p/itm95f70cb9ee583?pid=JASGT793FVUPZZDQ
-[2024-08-06T12:48:46.878403+0530] [0:08:45.112401] [script.py: 68] > scraped flipkart product: https://www.flipkart.com/carbamide-forte-isotonic-powder-energy-drink-electrolyte-powder-added-bcaa-l-glutamine-pre-workout/p/itm5aa1d17291eaa?pid=PSLGW7Y8ZJANUMGT
+[2024-10-29T11:40:01.617585+0530] [0:00:00.393819] [script.py: 28] > starting script
+[2024-10-29T11:40:02.557776+0530] [0:00:01.334010] [mail.py: 65] > Email has been sent successfully
+[2024-10-29T11:40:02.557960+0530] [0:00:01.334194] [script.py: 43] > loading data
 Traceback (most recent call last):
-  File "/home/asyncxeno/Dev/price-monitoring/./script.py", line 86, in <module>
-    driver.get(amazon_data[-1]['Url'])
-  File "/home/asyncxeno/Dev/price-monitoring/venv/lib/python3.10/site-packages/undetected_chromedriver/__init__.py", line 665, in get
-    return super().get(url)
-  File "/home/asyncxeno/Dev/price-monitoring/venv/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py", line 356, in get
-    self.execute(Command.GET, {"url": url})
+  File "/home/asyncxeno/Dev/price-monitoring/./script.py", line 55, in <module>
+    driver = get_chromedriver_without_proxy()
+  File "/home/asyncxeno/Dev/price-monitoring/utils/selenium_utils.py", line 16, in wrapper
+    driver: uc.Chrome = f(*args, **kwargs)
+  File "/home/asyncxeno/Dev/price-monitoring/utils/selenium_utils.py", line 53, in get_chromedriver_without_proxy
+    driver = uc.Chrome(options=chrome_options, driver_executable_path=ChromeDriverManager().install())
+  File "/home/asyncxeno/Dev/price-monitoring/venv/lib/python3.10/site-packages/undetected_chromedriver/__init__.py", line 466, in __init__
+    super(Chrome, self).__init__(
+  File "/home/asyncxeno/Dev/price-monitoring/venv/lib/python3.10/site-packages/selenium/webdriver/chrome/webdriver.py", line 45, in __init__
+    super().__init__(
+  File "/home/asyncxeno/Dev/price-monitoring/venv/lib/python3.10/site-packages/selenium/webdriver/chromium/webdriver.py", line 61, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "/home/asyncxeno/Dev/price-monitoring/venv/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py", line 208, in __init__
+    self.start_session(capabilities)
+  File "/home/asyncxeno/Dev/price-monitoring/venv/lib/python3.10/site-packages/undetected_chromedriver/__init__.py", line 724, in start_session
+    super(selenium.webdriver.chrome.webdriver.WebDriver, self).start_session(
+  File "/home/asyncxeno/Dev/price-monitoring/venv/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py", line 292, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
   File "/home/asyncxeno/Dev/price-monitoring/venv/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py", line 347, in execute
     self.error_handler.check_response(response)
   File "/home/asyncxeno/Dev/price-monitoring/venv/lib/python3.10/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
     raise exception_class(message, screen, stacktrace)
-selenium.common.exceptions.InvalidArgumentException: Message: invalid argument: missing command parameters
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: cannot connect to chrome at 127.0.0.1:33007
+from chrome not reachable
 Stacktrace:
-#0 0x5e020df4ac5a <unknown>
-#1 0x5e020dc2de2c <unknown>
-#2 0x5e020dc97a75 <unknown>
-#3 0x5e020dc96f8a <unknown>
-#4 0x5e020dbf8a88 <unknown>
-#5 0x5e020df1122b <unknown>
-#6 0x5e020df152d1 <unknown>
-#7 0x5e020defcade <unknown>
-#8 0x5e020df15e32 <unknown>
-#9 0x5e020dee177f <unknown>
-#10 0x5e020dbf7066 <unknown>
-#11 0x7e0938a29d90 <unknown>
+#0 0x57b497a5410a <unknown>
+#1 0x57b49756f2bd <unknown>
+#2 0x57b49755b4bf <unknown>
+#3 0x57b4975aa56c <unknown>
+#4 0x57b4975a0392 <unknown>
+#5 0x57b4975ec156 <unknown>
+#6 0x57b4975eb7a6 <unknown>
+#7 0x57b4975dfdb3 <unknown>
+#8 0x57b4975aec10 <unknown>
+#9 0x57b4975afbee <unknown>
+#10 0x57b497a2039b <unknown>
+#11 0x57b497a24338 <unknown>
+#12 0x57b497a0debc <unknown>
+#13 0x57b497a24eb7 <unknown>
+#14 0x57b4979f310f <unknown>
+#15 0x57b497a42828 <unknown>
+#16 0x57b497a429f0 <unknown>
+#17 0x57b497a52f86 <unknown>
+#18 0x701587494ac3 <unknown>
 

@@ -13,7 +13,7 @@ def check_for_reload(driver: webdriver.Chrome) -> None:
 
     for alert in alerts:
         if 'reload' in alert.get_attribute('innerText').lower():
-            driver.reload()
+            driver.refresh()
             check_for_reload()
 
     return
@@ -74,12 +74,15 @@ def get_product_information(driver: webdriver.Chrome, product_link: str) -> dict
                 deal_tag = 'Yes'
             except Exception:
                 deal_tag = 'No'
+
+            expiry_date = driver.find_element(By.CSS_SELECTOR, '#expiryDate_feature_div').get_attribute('innerText').strip().split(':')[-1].strip()
             
             return {
                 'mrp': mrp,
                 'sp': sp,
                 'seller': seller,
-                'deal tag': deal_tag
+                'deal tag': deal_tag,
+                'expiry date': expiry_date
             }
         except Exception:
             sp_row = rows[0]
@@ -93,11 +96,14 @@ def get_product_information(driver: webdriver.Chrome, product_link: str) -> dict
             except Exception:
                 deal_tag = 'No'
 
+            expiry_date = driver.find_element(By.CSS_SELECTOR, '#expiryDate_feature_div').get_attribute('innerText').strip().split(':')[-1].strip()
+
             return {
                 'mrp': 'NA',
                 'sp': sp,
                 'seller': seller,
-                'deal tag': deal_tag
+                'deal tag': deal_tag,
+                'expiry date': expiry_date
             }
         
     except Exception:
@@ -113,12 +119,15 @@ def get_product_information(driver: webdriver.Chrome, product_link: str) -> dict
                 deal_tag = 'Yes'
             except Exception:
                 deal_tag = 'No'
+
+            expiry_date = driver.find_element(By.CSS_SELECTOR, '#expiryDate_feature_div').get_attribute('innerText').strip().split(':')[-1].strip()
             
             return {
                 'mrp': mrp,
                 'sp': sp,
                 'seller': seller,
-                'deal tag': deal_tag
+                'deal tag': deal_tag,
+                'expiry date': expiry_date
             }
         
         except Exception:
