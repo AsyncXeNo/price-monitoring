@@ -30,8 +30,8 @@ if __name__ == '__main__':
 
     send_email('dev.kartikaggarwal117@gmail.com', ['dev.kartikaggarwal117@gmail.com'], 'Pricemon Execute', 'Script has started execution!', [])
 
-    disp = Display()
-    disp.start()
+    # disp = Display()
+    # disp.start()
 
     amazon_output = []
     flipcart_output = []
@@ -178,6 +178,9 @@ if __name__ == '__main__':
             send_error_mail('Nykaa sheet data structure has been changed')
             exit()
     
+    driver.close()
+    driver = get_chromedriver_without_proxy()
+    
     logger.info('scraping hyugalife data')
     for index, entry in enumerate(hyugalife_data):
         try:
@@ -216,6 +219,6 @@ if __name__ == '__main__':
 
     driver.close()
 
-    disp.stop()
+    # disp.stop()
 
     logger.info('script has run to completion!')
