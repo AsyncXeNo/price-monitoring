@@ -8,7 +8,7 @@ from loguru import logger
 
 from pyvirtualdisplay import Display
 
-from utils.selenium_utils import get_chromedriver_without_proxy, get_chromedriver_without_javascript
+from utils.selenium_utils import get_chromedriver_without_proxy
 from portals.amazon import get_product_information as get_amazon_product_information
 from portals.flipcart import get_product_information as get_flipcart_product_information
 from portals.one_mg import get_product_information as get_one_mg_product_information
@@ -52,7 +52,7 @@ if __name__ == '__main__':
         send_error_mail('Error while loading data from google sheet')
         exit()
 
-    driver = get_chromedriver_without_javascript()
+    driver = get_chromedriver_without_proxy()
         
     logger.info('scraping flipkart data')
     for index, entry in enumerate(flipcart_data):
@@ -178,8 +178,8 @@ if __name__ == '__main__':
             send_error_mail('Nykaa sheet data structure has been changed')
             exit()
     
-    driver.close()
-    driver = get_chromedriver_without_proxy()
+    # driver.close()
+    # driver = get_chromedriver_without_proxy()
     
     logger.info('scraping hyugalife data')
     for index, entry in enumerate(hyugalife_data):
