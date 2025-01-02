@@ -21,7 +21,6 @@ target_email_list = [
     'kartik.aggarwal117@gmail.com',
     'ecom1@novuslifesciences.com',
     'ecom4@novuslifesciences.com',
-    'ecom6@novuslifesciences.com',
     'ecom7@novuslifesciences.com',
     'ecom9@novuslifesciences.com',
     'ecom11@novuslifesciences.com',
