@@ -15,16 +15,22 @@ def get_product_information(driver: webdriver.Chrome, product_link: str) -> dict
         ProductUnavailable(product_link)
 
     try:
-        sp = float(driver.find_element(By.CLASS_NAME, 'PriceBoxPlanOption__offer-price___3v9x8').get_attribute('innerText').strip().strip('₹').replace(',', ''))
+        sp = float(driver.find_element(By.CLASS_NAME, 'PriceBoxPlanOption__offer-price___3v9x8').get_attribute('innerText').strip().strip('₹').strip('Inclusive of all taxes').replace(',', ''))
+    except:
         try:
-            mrp = float(driver.find_element(By.CLASS_NAME, 'PriceBoxPlanOption__margin-right-4___2aqFt').get_attribute('innerText').strip().strip('₹').replace(',', ''))
+            sp = float(driver.find_element(By.CLASS_NAME, 'PriceDetails__discount-div___nb724').get_attribute('innerText').strip().strip('₹').strip('Inclusive of all taxes').replace(',', ''))
         except Exception:
+            raise ProductUnavailable(product_link)
+
+    try:
+        mrp = float(driver.find_element(By.CLASS_NAME, 'PriceBoxPlanOption__margin-right-4___2aqFt').get_attribute('innerText').strip().strip('₹').replace(',', ''))
+    except Exception:
+        try:
+            mrp = float(driver.find_element(By.CLASS_NAME, 'DiscountDetails__discount-price___Mdcwo').get_attribute('innerText').strip().strip('₹').replace(',', ''))
+        except:
             mrp = 'NA'
 
-        return {
-            'mrp': mrp,
-            'sp': sp
-        }
-    
-    except Exception:
-        raise ProductUnavailable(product_link)
+    return {
+        'mrp': mrp,
+        'sp': sp
+    }

@@ -19,17 +19,17 @@ sender_email = 'dev.kartikaggarwal117@gmail.com'
 target_email_list = [
     'dev.kartikaggarwal117@gmail.com',
     'kartik.aggarwal117@gmail.com',
-    'ecom1@novuslifesciences.com',
-    'ecom4@novuslifesciences.com',
-    'ecom7@novuslifesciences.com',
-    'ecom9@novuslifesciences.com',
-    'ecom11@novuslifesciences.com',
-    'ecom12@novuslifesciences.com',
-    'ecom13@novuslifesciences.com',
-    'ecom14@novuslifesciences.com',
-    'ecom16@novuslifesciences.com',
-    'ecom17@novuslifesciences.com',
-    'ecom19@novuslifesciences.com',
+    # 'ecom1@novuslifesciences.com',
+    # 'ecom4@novuslifesciences.com',
+    # 'ecom7@novuslifesciences.com',
+    # 'ecom9@novuslifesciences.com',
+    # 'ecom11@novuslifesciences.com',
+    # 'ecom12@novuslifesciences.com',
+    # 'ecom13@novuslifesciences.com',
+    # 'ecom14@novuslifesciences.com',
+    # 'ecom16@novuslifesciences.com',
+    # 'ecom17@novuslifesciences.com',
+    # 'ecom19@novuslifesciences.com',
 ]
 
 

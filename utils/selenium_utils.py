@@ -26,7 +26,7 @@ def _driver_wrapper(f):
 def _get_chrome_options_without_js():
     chrome_options = uc.ChromeOptions()
 
-    chrome_options.add_argument("--user-data-dir=/home/asyncxeno/Dev/price-monitoring/user_data_dir")
+    chrome_options.add_argument(r"--user-data-dir=C:\Users\kavya\OneDrive\Desktop\Dev\price-monitoring\user_data_dir")
     chrome_options.add_argument("--profile-directory=Default")
 
     chrome_options.add_experimental_option( "prefs",{'profile.managed_default_content_settings.javascript': 2})
@@ -43,9 +43,15 @@ def _get_chrome_options():
     # chrome_options.add_argument("--disable-infobars")
     # chrome_options.add_argument("--disable-save-password-bubble")
 
-    chrome_options.add_argument("--user-data-dir=/home/asyncxeno/Dev/price-monitoring/user_data_dir")
+    chrome_options.add_argument(r"--user-data-dir=C:\Users\kavya\OneDrive\Desktop\Dev\price-monitoring\user_data_dir")
     chrome_options.add_argument("--profile-directory=Default")
     # chrome_options.add_argument('--remote-debugging-port=9223')
+
+    chrome_options.add_argument("--headless=new")  # Use "new" for updated headless mode
+    chrome_options.add_argument("--disable-gpu")   # Recommended for compatibility
+    chrome_options.add_argument("--no-sandbox")   # Good for Linux environments
+    chrome_options.add_argument("--disable-dev-shm-usage")  # Avoid shared memory issues
+    chrome_options.add_argument("--disable-blink-features=AutomationControlled")  # Hide automation
 
     # chrome_options.add_argument("--headless=new")
 
@@ -61,13 +67,21 @@ def _get_chrome_options():
 @_driver_wrapper
 def get_chromedriver_without_javascript() -> uc.Chrome:
     chrome_options = _get_chrome_options_without_js()
+    driver = uc.Chrome(options=chrome_options, driver_executable_path=ChromeDriverManager().install(), headless=True)
+    return driver
+
+
+@_driver_wrapper
+def get_chromedriver_without_javascript_without_headless() -> uc.Chrome:
+    chrome_options = _get_chrome_options_without_js()
     driver = uc.Chrome(options=chrome_options, driver_executable_path=ChromeDriverManager().install())
     return driver
+
 
 @_driver_wrapper
 def get_chromedriver_without_proxy() -> uc.Chrome:
     chrome_options = _get_chrome_options()
-    driver = uc.Chrome(options=chrome_options, driver_executable_path=ChromeDriverManager().install())
+    driver = uc.Chrome(options=chrome_options, driver_executable_path=ChromeDriverManager().install(), headless=True)
     return driver
 
 

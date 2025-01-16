@@ -17,19 +17,20 @@ def get_product_information(driver:webdriver.Chrome, product_link: str) -> dict[
         ProductUnavailable(product_link)
 
     try:
-        sp = float(driver.find_element(By.XPATH, " //p[contains(text(), '₹')]").get_attribute('innerText').strip().strip('₹').replace(',', ''))
+        sp = float(driver.find_element(By.XPATH, "//p[@class='font-bold text-4xl sm:text-6xl tracking-tight text-gray-100']").get_attribute('innerText').strip().strip('₹').replace(',', ''))
         mrp = float(driver.find_element(By.TAG_NAME, 'del').get_attribute('innerText').strip().strip('₹').replace(',', ''))
 
-        if 'product is sold out' in driver.find_element(By.CLASS_NAME, 'product-select-options').get_attribute('innerText').strip().lower():
+        try:
+            driver.find_element(By.CLASS_NAME, 'AvailableStatus__out-of-stock___2rv_7')
             return {
                 'mrp': 'NA',
                 'sp': 'NA'
             }
-
-        return {
-            'mrp': mrp,
-            'sp': sp
-        }
+        except Exception:
+            return {
+                'mrp': mrp,
+                'sp': sp
+            }
     
     except Exception:
         raise ProductUnavailable(product_link)

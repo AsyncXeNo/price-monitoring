@@ -1,3 +1,5 @@
+import time
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -15,6 +17,7 @@ def get_product_information(driver:webdriver.Chrome, product_link: str) -> dict[
     
     try:
         driver.get(product_link)
+        time.sleep(0.5)
     except Exception:
         ProductUnavailable(product_link)
 

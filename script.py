@@ -8,7 +8,7 @@ from loguru import logger
 
 from pyvirtualdisplay import Display
 
-from utils.selenium_utils import get_chromedriver_without_proxy
+from utils.selenium_utils import get_chromedriver_without_proxy, get_chromedriver_without_javascript, get_chromedriver_without_javascript_without_headless
 from portals.amazon import get_product_information as get_amazon_product_information
 from portals.flipcart import get_product_information as get_flipcart_product_information
 from portals.one_mg import get_product_information as get_one_mg_product_information
@@ -30,9 +30,6 @@ if __name__ == '__main__':
 
     send_email('dev.kartikaggarwal117@gmail.com', ['dev.kartikaggarwal117@gmail.com'], 'Pricemon Execute', 'Script has started execution!', [])
 
-    # disp = Display()
-    # disp.start()
-
     amazon_output = []
     flipcart_output = []
     one_mg_output = []
@@ -52,7 +49,8 @@ if __name__ == '__main__':
         send_error_mail('Error while loading data from google sheet')
         exit()
 
-    driver = get_chromedriver_without_proxy()
+    # driver = get_chromedriver_without_proxy()
+    driver = get_chromedriver_without_javascript()
         
     logger.info('scraping flipkart data')
     for index, entry in enumerate(flipcart_data):
@@ -148,6 +146,41 @@ if __name__ == '__main__':
             logger.error('1mg data structure has been changed')
             send_error_mail('1mg sheet data structure has been changed')
             exit()
+
+    logger.info('scraping hyugalife data')
+    for index, entry in enumerate(hyugalife_data):
+        try:
+            Id = entry['Id']
+            SKU = entry['SKU']
+            source_MRP = float(entry['source_MRP'])
+            source_SP = float(entry['source_SP'])
+            Url = str(entry['Url'])
+            try:
+                scraped = get_hyugalife_product_information(driver, Url)
+                logger.debug(f'[{index + 1}/{len(hyugalife_data)}] scraped hyugalife product: {Url}')
+            except ProductUnavailable:
+                scraped = {'mrp': 'NA', 'sp': 'NA'}
+                logger.error(f'[{index + 1}/{len(hyugalife_data)}] hyugalife product not found: {Url}')
+            hyugalife_output.append({
+                'Id': Id,
+                'SKU': SKU,
+                'source_MRP': source_MRP,
+                'scraped_MRP': scraped['mrp'],
+                'source_SP': source_SP,
+                'scraped_SP': scraped['sp'],
+                'Url': Url
+            })
+        except KeyError:
+            logger.error('Hyugalife data structure has been changed')
+            send_error_mail('Hyugalife sheet data structure has been changed')
+            exit()
+
+    driver.quit()
+
+    disp = Display()
+    disp.start()
+
+    driver = get_chromedriver_without_javascript_without_headless()
     
     logger.info('scraping nykaa data')
 
@@ -177,37 +210,6 @@ if __name__ == '__main__':
             logger.error('Nykaa data structure has been changed')
             send_error_mail('Nykaa sheet data structure has been changed')
             exit()
-    
-    # driver.close()
-    # driver = get_chromedriver_without_proxy()
-    
-    logger.info('scraping hyugalife data')
-    for index, entry in enumerate(hyugalife_data):
-        try:
-            Id = entry['Id']
-            SKU = entry['SKU']
-            source_MRP = float(entry['source_MRP'])
-            source_SP = float(entry['source_SP'])
-            Url = str(entry['Url'])
-            try:
-                scraped = get_hyugalife_product_information(driver, Url)
-                logger.debug(f'[{index + 1}/{len(hyugalife_data)}] scraped hyugalife product: {Url}')
-            except ProductUnavailable:
-                scraped = {'mrp': 'NA', 'sp': 'NA'}
-                logger.error(f'[{index + 1}/{len(hyugalife_data)}] hyugalife product not found: {Url}')
-            hyugalife_output.append({
-                'Id': Id,
-                'SKU': SKU,
-                'source_MRP': source_MRP,
-                'scraped_MRP': scraped['mrp'],
-                'source_SP': source_SP,
-                'scraped_SP': scraped['sp'],
-                'Url': Url
-            })
-        except KeyError:
-            logger.error('Hyugalife data structure has been changed')
-            send_error_mail('Hyugalife sheet data structure has been changed')
-            exit()
         
     logger.info('data scraping complete, compiling...')
         
@@ -217,8 +219,8 @@ if __name__ == '__main__':
 
     send_output_mail()
 
-    driver.close()
+    driver.quit()
 
-    # disp.stop()
+    disp.stop()
 
     logger.info('script has run to completion!')
