@@ -26,7 +26,7 @@ def _driver_wrapper(f):
 def _get_chrome_options_without_js():
     chrome_options = uc.ChromeOptions()
 
-    chrome_options.add_argument(r"--user-data-dir=C:\Users\kavya\OneDrive\Desktop\Dev\price-monitoring\user_data_dir")
+    chrome_options.add_argument(rf"--user-data-dir={os.path.join(os.getcwd(), 'user_data_dir')}")
     chrome_options.add_argument("--profile-directory=Default")
 
     chrome_options.add_experimental_option( "prefs",{'profile.managed_default_content_settings.javascript': 2})
@@ -43,7 +43,7 @@ def _get_chrome_options():
     # chrome_options.add_argument("--disable-infobars")
     # chrome_options.add_argument("--disable-save-password-bubble")
 
-    chrome_options.add_argument(r"--user-data-dir=C:\Users\kavya\OneDrive\Desktop\Dev\price-monitoring\user_data_dir")
+    chrome_options.add_argument(rf"--user-data-dir={os.path.join(os.getcwd(), 'user_data_dir')}")    
     chrome_options.add_argument("--profile-directory=Default")
     # chrome_options.add_argument('--remote-debugging-port=9223')
 
