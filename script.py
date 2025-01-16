@@ -6,7 +6,7 @@ import utils.config as _
 
 from loguru import logger
 
-from pyvirtualdisplay import Display
+# from pyvirtualdisplay import Display
 
 from utils.selenium_utils import get_chromedriver_without_proxy, get_chromedriver_without_javascript, get_chromedriver_without_javascript_without_headless
 from portals.amazon import get_product_information as get_amazon_product_information
@@ -177,8 +177,8 @@ if __name__ == '__main__':
 
     driver.quit()
 
-    disp = Display()
-    disp.start()
+    # disp = Display()
+    # disp.start()
 
     driver = get_chromedriver_without_javascript_without_headless()
     
@@ -221,6 +221,6 @@ if __name__ == '__main__':
 
     driver.quit()
 
-    disp.stop()
+    # disp.stop()
 
     logger.info('script has run to completion!')

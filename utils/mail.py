@@ -1,3 +1,4 @@
+import requests
 import datetime
 import os
 import base64
@@ -19,17 +20,17 @@ sender_email = 'dev.kartikaggarwal117@gmail.com'
 target_email_list = [
     'dev.kartikaggarwal117@gmail.com',
     'kartik.aggarwal117@gmail.com',
-    # 'ecom1@novuslifesciences.com',
-    # 'ecom4@novuslifesciences.com',
-    # 'ecom7@novuslifesciences.com',
-    # 'ecom9@novuslifesciences.com',
-    # 'ecom11@novuslifesciences.com',
-    # 'ecom12@novuslifesciences.com',
-    # 'ecom13@novuslifesciences.com',
-    # 'ecom14@novuslifesciences.com',
-    # 'ecom16@novuslifesciences.com',
-    # 'ecom17@novuslifesciences.com',
-    # 'ecom19@novuslifesciences.com',
+    'ecom1@novuslifesciences.com',
+    'ecom4@novuslifesciences.com',
+    'ecom7@novuslifesciences.com',
+    'ecom9@novuslifesciences.com',
+    'ecom11@novuslifesciences.com',
+    'ecom12@novuslifesciences.com',
+    'ecom13@novuslifesciences.com',
+    'ecom14@novuslifesciences.com',
+    'ecom16@novuslifesciences.com',
+    'ecom17@novuslifesciences.com',
+    'ecom19@novuslifesciences.com',
 ]
 
 
@@ -54,20 +55,19 @@ def get_credentials():
 
 
 def send_email(sender, to_list, subject, message_text, file_paths=[]):
-    creds = get_credentials()
-    service = build('gmail', 'v1', credentials=creds)
-    
-    message = create_message(sender, to_list, subject, message_text, file_paths)
-    
-    try:
-        message = (service.users().messages().send(userId='me', body=message)
-                   .execute())
-        logger.debug('Email has been sent successfully')
-        return message
-    except Exception as e:
-        logger.error(f'An error occurred while sending out email: {e}')
-        return None
 
+    send_mail_webhook_url = 'https://hook.eu2.make.com/hu657hxcakj94aedv4qjjjl9tblv602u'
+
+    files = [("files", (file, open(file, "rb"))) for file in file_paths]
+
+    data = {
+        "sender": sender,
+        "recipients": ",".join(to_list),
+        "subject": subject,
+        "message": message_text,
+    }
+
+    requests.post(send_mail_webhook_url, data=data, files=files)
 
 def create_message(sender, to_list, subject, message_text, file_paths=[]):
     message = MIMEMultipart()
