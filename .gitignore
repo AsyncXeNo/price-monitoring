@@ -2,3 +2,4 @@
 .vscode
 venv
 user_data_dir
+.env

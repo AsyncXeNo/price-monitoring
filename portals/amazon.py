@@ -1,9 +1,10 @@
+import time
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
-from loguru import logger
 
 from exceptions.product import ProductUnavailable
 
@@ -13,6 +14,7 @@ def check_for_reload(driver: webdriver.Chrome) -> None:
 
     for alert in alerts:
         if 'reload' in alert.get_attribute('innerText').lower():
+            print('reload')
             driver.refresh()
             check_for_reload()
 
@@ -20,11 +22,15 @@ def check_for_reload(driver: webdriver.Chrome) -> None:
 
 
 def check_for_captcha(driver: webdriver.Chrome) -> bool:
-    pass
-
+    try:
+        driver.find_element(By.XPATH, '//h4[text()="Type the characters you see in this image:"]')
+        return True
+    except:
+        return False
 
 def solve_captcha(driver: webdriver.Chrome) -> bool:
-    pass
+    time.sleep(5)
+    driver.refresh()
 
 
 def get_product_information(driver: webdriver.Chrome, product_link: str) -> dict[str, str]:
@@ -34,7 +40,8 @@ def get_product_information(driver: webdriver.Chrome, product_link: str) -> dict
     except Exception:
         ProductUnavailable(product_link)
 
-    if check_for_captcha:
+    if check_for_captcha(driver):
+        print('captcha')
         solve_captcha(driver)
 
     check_for_reload(driver)

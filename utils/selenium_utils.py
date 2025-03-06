@@ -46,13 +46,6 @@ def _get_chrome_options():
     chrome_options.add_argument(rf"--user-data-dir={os.path.join(os.getcwd(), 'user_data_dir')}")    
     chrome_options.add_argument("--profile-directory=Default")
     # chrome_options.add_argument('--remote-debugging-port=9223')
-
-    chrome_options.add_argument("--headless=new")  # Use "new" for updated headless mode
-    chrome_options.add_argument("--disable-gpu")   # Recommended for compatibility
-    chrome_options.add_argument("--no-sandbox")   # Good for Linux environments
-    chrome_options.add_argument("--disable-dev-shm-usage")  # Avoid shared memory issues
-    chrome_options.add_argument("--disable-blink-features=AutomationControlled")  # Hide automation
-
     # chrome_options.add_argument("--headless=new")
 
     # chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"]) 
@@ -67,7 +60,7 @@ def _get_chrome_options():
 @_driver_wrapper
 def get_chromedriver_without_javascript() -> uc.Chrome:
     chrome_options = _get_chrome_options_without_js()
-    driver = uc.Chrome(options=chrome_options, driver_executable_path=ChromeDriverManager().install(), headless=True)
+    driver = uc.Chrome(options=chrome_options, driver_executable_path=ChromeDriverManager().install())
     return driver
 
 
@@ -81,7 +74,7 @@ def get_chromedriver_without_javascript_without_headless() -> uc.Chrome:
 @_driver_wrapper
 def get_chromedriver_without_proxy() -> uc.Chrome:
     chrome_options = _get_chrome_options()
-    driver = uc.Chrome(options=chrome_options, driver_executable_path=ChromeDriverManager().install(), headless=True)
+    driver = uc.Chrome(options=chrome_options, driver_executable_path=ChromeDriverManager().install())
     return driver
 
 

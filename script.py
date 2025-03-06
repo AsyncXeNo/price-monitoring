@@ -28,7 +28,7 @@ PASS = '125h0s4vd7nh'
 if __name__ == '__main__':
     logger.info('starting script')
 
-    send_email('dev.kartikaggarwal117@gmail.com', ['dev.kartikaggarwal117@gmail.com'], 'Pricemon Execute', 'Script has started execution!', [])
+    send_email('Notification System <dev@kartikcodes.in>', ['dev.kartikaggarwal117@gmail.com'], 'Pricemon Execute', 'Pricemon script has started execution!', [])
 
     amazon_output = []
     flipcart_output = []
@@ -51,35 +51,6 @@ if __name__ == '__main__':
 
     # driver = get_chromedriver_without_proxy()
     driver = get_chromedriver_without_javascript()
-        
-    logger.info('scraping flipkart data')
-    for index, entry in enumerate(flipcart_data):
-        try:
-            Id = entry['Id']
-            SKU = entry['SKU']
-            source_MRP = float(entry['source_MRP'])
-            source_SP = float(entry['source_SP'])
-            Url = str(entry['Url'])
-            try:
-                scraped = get_flipcart_product_information(driver, Url)
-                logger.debug(f'[{index + 1}/{len(flipcart_data)}] scraped flipkart product: {Url}')
-            except ProductUnavailable:
-                scraped = {'mrp': 'NA', 'sp': 'NA', 'seller': 'NA'}
-                logger.error(f'[{index + 1}/{len(flipcart_data)}] flipkart product not found: {Url}')
-            flipcart_output.append({
-                'Id': Id,
-                'SKU': SKU,
-                'source_MRP': source_MRP,
-                'scraped_MRP': scraped['mrp'],
-                'source_SP': source_SP,
-                'scraped_SP': scraped['sp'],
-                'seller': scraped['seller'],
-                'Url': Url
-            })
-        except KeyError:
-            logger.error('Flipkart data structure has been changed')
-            send_error_mail('Flipkart sheet data structure has been changed')
-            exit()
 
     logger.info('scraping amazon data')
     for index, entry in enumerate(amazon_data):
@@ -117,6 +88,35 @@ if __name__ == '__main__':
         except ValueError:
             logger.warning(f'[{index + 1}/{len(amazon_data)}] skipping amazon product, ASIN: {ASIN}')
             continue
+        
+    logger.info('scraping flipkart data')
+    for index, entry in enumerate(flipcart_data):
+        try:
+            Id = entry['Id']
+            SKU = entry['SKU']
+            source_MRP = float(entry['source_MRP'])
+            source_SP = float(entry['source_SP'])
+            Url = str(entry['Url'])
+            try:
+                scraped = get_flipcart_product_information(driver, Url)
+                logger.debug(f'[{index + 1}/{len(flipcart_data)}] scraped flipkart product: {Url}')
+            except ProductUnavailable:
+                scraped = {'mrp': 'NA', 'sp': 'NA', 'seller': 'NA'}
+                logger.error(f'[{index + 1}/{len(flipcart_data)}] flipkart product not found: {Url}')
+            flipcart_output.append({
+                'Id': Id,
+                'SKU': SKU,
+                'source_MRP': source_MRP,
+                'scraped_MRP': scraped['mrp'],
+                'source_SP': source_SP,
+                'scraped_SP': scraped['sp'],
+                'seller': scraped['seller'],
+                'Url': Url
+            })
+        except KeyError:
+            logger.error('Flipkart data structure has been changed')
+            send_error_mail('Flipkart sheet data structure has been changed')
+            exit()
 
     logger.info('scraping 1mg data')
     for index, entry in enumerate(one_mg_data):
