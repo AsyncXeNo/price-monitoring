@@ -9,7 +9,7 @@ from loguru import logger
 # from pyvirtualdisplay import Display
 
 from utils.selenium_utils import get_chromedriver_without_proxy, get_chromedriver_without_javascript, get_chromedriver_without_javascript_without_headless
-from portals.amazon import get_product_information as get_amazon_product_information
+from portals.amazon import get_product_information as get_amazon_product_information, CAPTCHAS_SOLVED
 from portals.flipcart import get_product_information as get_flipcart_product_information
 from portals.one_mg import get_product_information as get_one_mg_product_information
 from portals.nykaa import get_product_information as get_nykaa_product_information
@@ -28,7 +28,7 @@ PASS = '125h0s4vd7nh'
 if __name__ == '__main__':
     logger.info('starting script')
 
-    send_email('Notification System <dev@kartikcodes.in>', ['dev.kartikaggarwal117@gmail.com'], 'Pricemon Execute', 'Pricemon script has started execution!', [])
+    send_email('Notification System <dev@kartikcodes.in>', ['dev.kartikaggarwal117@gmail.com'], 'Pricemon Execute!', 'Pricemon script has started execution!', [])
 
     amazon_output = []
     flipcart_output = []
@@ -64,7 +64,7 @@ if __name__ == '__main__':
                 logger.warning(f'[{index + 1}/{len(amazon_data)}] skipping amazon product, ASIN: {ASIN}')
                 continue
             try:
-                scraped = get_amazon_product_information(driver, Url)
+                scraped = get_amazon_product_information(driver, Url, logger)
                 logger.debug(f'[{index + 1}/{len(amazon_data)}] scraped amazon product: {Url}')
             except ProductUnavailable:
                 scraped = {'mrp': 'NA', 'sp': 'NA', 'seller': 'NA', 'deal tag': 'NA', 'expiry date': 'NA'}
@@ -222,5 +222,5 @@ if __name__ == '__main__':
     driver.quit()
 
     # disp.stop()
-
+    logger.info(f'Captchas solved: {CAPTCHAS_SOLVED}')
     logger.info('script has run to completion!')

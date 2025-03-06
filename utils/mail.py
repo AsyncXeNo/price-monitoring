@@ -125,7 +125,7 @@ def send_email(sender, to_list, subject, message_text, file_paths=[]):
 #     return {'raw': raw_message}
 
 
-def send_output_mail(sender='Price Sheet Delivery System <dev@kartikcodes.in>'):
+def send_output_mail(sender='Delivery System <dev@kartikcodes.in>'):
     current_date = datetime.datetime.now()
     formatted_date = current_date.strftime("%d %B")
     send_email(sender, 
