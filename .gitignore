@@ -3,3 +3,6 @@
 venv
 user_data_dir
 .env
+test.py
+logs/script.log
+data/output.xlsx
