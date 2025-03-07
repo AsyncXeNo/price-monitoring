@@ -1,3 +1,5 @@
+import os
+
 import pandas as pd
 
 
@@ -49,6 +51,9 @@ def color_cells(df):
 
 
 def compile_data(amazon_data, flipcart_data, one_mg_data, nykaa_data, hugalife_data):
+    if not os.exists('data'):
+        os.makedirs('data')
+    
     excel_writer = pd.ExcelWriter('data/output.xlsx', engine='xlsxwriter')
     
     color_cells(pd.DataFrame(data=amazon_data)).to_excel(excel_writer, sheet_name='Amazon', index=False)
