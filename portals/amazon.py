@@ -32,18 +32,27 @@ def check_for_captcha(driver: webdriver.Chrome) -> bool:
     except:
         return False
 
-def solve_captcha(driver: webdriver.Chrome, logger) -> bool:
+
+def solve_captcha(driver: webdriver.Chrome, logger, current_try: int = 1):
+    global CAPTCHAS_SOLVED
+
+    if current_try > 5:
+        logger.error('Failed to solve captcha after 5 attempts')
+        return
 
     if not os.path.exists('captchas'):
         os.makedirs('captchas')
     
     captcha_img = driver.find_element(By.CSS_SELECTOR, '.a-row img')
-    captcha_img.screenshot_as_png('/captchas/captcha.png')
+    captcha_path = os.path.join(os.getcwd(), 'captchas', 'captcha.png')
+    captcha_img.screenshot(captcha_path)
 
-    code, captcha_id = solve_text_captcha('/captchas/captcha.png', logger)
+    code, captcha_id = solve_text_captcha(captcha_path, logger)
 
     driver.find_element(By.ID, 'captchacharacters').send_keys(code)
     driver.find_element(By.TAG_NAME, 'button').click()
+
+    time.sleep(0.5)
 
     if check_for_captcha(driver):
         report_incorrect(captcha_id, logger)
