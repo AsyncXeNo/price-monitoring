@@ -51,7 +51,7 @@ def color_cells(df):
 
 
 def compile_data(amazon_data, flipcart_data, one_mg_data, nykaa_data, hugalife_data):
-    if not os.exists('data'):
+    if not os.path.exists('data'):
         os.makedirs('data')
     
     excel_writer = pd.ExcelWriter('data/output.xlsx', engine='xlsxwriter')

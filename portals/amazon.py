@@ -20,7 +20,7 @@ def check_for_reload(driver: webdriver.Chrome) -> None:
         if 'reload' in alert.get_attribute('innerText').lower():
             print('reload')
             driver.refresh()
-            check_for_reload()
+            check_for_reload(driver)
 
     return
 
@@ -73,7 +73,7 @@ def get_product_information(driver: webdriver.Chrome, product_link: str, logger)
     if check_for_captcha(driver):
         solve_captcha(driver, logger)
 
-    check_for_reload(driver)
+    # check_for_reload(driver)
 
     try:
         product_div = WebDriverWait(driver, 2).until(
