@@ -147,6 +147,10 @@ if __name__ == '__main__':
             send_error_mail('1mg sheet data structure has been changed')
             exit()
 
+    driver.quit()
+
+    driver = get_chromedriver_without_proxy()
+
     logger.info('scraping hyugalife data')
     for index, entry in enumerate(hyugalife_data):
         try:
@@ -175,12 +179,10 @@ if __name__ == '__main__':
             send_error_mail('Hyugalife sheet data structure has been changed')
             exit()
 
-    driver.quit()
+    
 
     # disp = Display()
     # disp.start()
-
-    driver = get_chromedriver_without_javascript_without_headless()
     
     logger.info('scraping nykaa data')
 
@@ -213,7 +215,7 @@ if __name__ == '__main__':
         
     logger.info('data scraping complete, compiling...')
         
-    compile_data(amazon_output, flipcart_output, one_mg_output, nykaa_output, hyugalife_output)
+    compile_data(amazon_output, flipcart_output, one_mg_output, nykaa_output, hyugalife_output, [], [])
 
     logger.info('compilation complete, emailing...')
 

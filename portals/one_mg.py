@@ -18,7 +18,7 @@ def get_product_information(driver: webdriver.Chrome, product_link: str) -> dict
         sp = float(driver.find_element(By.CLASS_NAME, 'PriceBoxPlanOption__offer-price___3v9x8').get_attribute('innerText').strip().strip('₹').strip('Inclusive of all taxes').replace(',', ''))
     except:
         try:
-            sp = float(driver.find_element(By.CLASS_NAME, 'PriceDetails__discount-div___nb724').get_attribute('innerText').strip().strip('₹').strip('Inclusive of all taxes').replace(',', ''))
+            sp = float(driver.find_element(By.CLASS_NAME, 'PriceDetails__discount-div___nb724').get_attribute('innerText').strip().strip('MRP').strip('₹').strip('Inclusive of all taxes').replace(',', ''))
         except Exception:
             raise ProductUnavailable(product_link)
 

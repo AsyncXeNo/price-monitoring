@@ -43,7 +43,7 @@ def _get_chrome_options():
     # chrome_options.add_argument("--disable-infobars")
     # chrome_options.add_argument("--disable-save-password-bubble")
 
-    chrome_options.add_argument(rf"--user-data-dir={os.path.join(os.getcwd(), 'user_data_dir')}")    
+    chrome_options.add_argument(rf"--user-data-dir={os.path.join(os.getcwd(), 'user_data_dir2')}")    
     chrome_options.add_argument("--profile-directory=Default")
     # chrome_options.add_argument('--remote-debugging-port=9223')
     # chrome_options.add_argument("--headless=new")

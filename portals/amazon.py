@@ -68,7 +68,7 @@ def get_product_information(driver: webdriver.Chrome, product_link: str, logger)
     try:
         driver.get(product_link)
     except Exception:
-        ProductUnavailable(product_link)
+        raise ProductUnavailable(product_link)
 
     if check_for_captcha(driver):
         solve_captcha(driver, logger)
@@ -91,80 +91,71 @@ def get_product_information(driver: webdriver.Chrome, product_link: str, logger)
             )
         except TimeoutException:
             raise ProductUnavailable(product_link)
+        
+    # Extract product information
+    try:
+        apex_desktop_div = driver.find_element(By.CSS_SELECTOR, '#apex_desktop_newAccordionRow')
+    except:
+        try:
+            apex_desktop_div = driver.find_element(By.CSS_SELECTOR, '#apex_desktop')
+        except:
+            return{
+                'url': product_link,
+                'mrp': 'NA',
+                'sp': 'NA',
+                'seller': seller,
+                'deal tag': deal_tag,
+                'expiry date': expiry_date
+            }
+    
+    try:
+        try:
+            price_to_pay = float(WebDriverWait(apex_desktop_div, 1).until(
+                EC.presence_of_element_located((By.CSS_SELECTOR, '.priceToPay .a-price-whole'))
+            ).get_attribute('innerText').replace(',', '').replace('.', '').replace('\n', '').strip().strip('₹'))
+        except Exception as e:
+            price_to_pay = float(apex_desktop_div.find_element(By.CSS_SELECTOR, '.apexPriceToPay .a-offscreen').get_attribute('innerText').replace(',', '').replace('.', '').replace('\n', '').strip().strip('₹'))
+    except Exception:
+        driver.refresh()
+        try:
+            price_to_pay = float(WebDriverWait(apex_desktop_div, 1).until(
+                EC.presence_of_element_located((By.CSS_SELECTOR, '.priceToPay .a-price-whole'))
+            ).get_attribute('innerText').replace(',', '').replace('.', '').replace('\n', '').strip().strip('₹'))
+        except Exception as e:
+            try:
+                price_to_pay = float(apex_desktop_div.find_element(By.CSS_SELECTOR, '.apexPriceToPay .a-offscreen').get_attribute('innerText').replace(',', '').replace('.', '').replace('\n', '').strip().strip('₹'))
+            except:
+                price_to_pay = None
 
     try:
-        price_table = product_div.find_element(By.TAG_NAME, 'table')
-        rows = price_table.find_elements(By.TAG_NAME, 'tr')
-
-        try:
-            mrp_row = rows[0]
-            sp_row = rows[1]
-
-            mrp = float(mrp_row.find_element(By.CLASS_NAME, 'a-offscreen').get_attribute('innerText').strip().strip('₹').replace(',', ''))
-            sp = float(sp_row.find_element(By.CLASS_NAME, 'a-offscreen').get_attribute('innerText').strip().strip('₹').replace(',', ''))
-
-            seller = driver.find_elements(By.CLASS_NAME, 'tabular-buybox-text')[-1].get_attribute('innerText').strip()
-
-            try:
-                driver.find_element(By.CSS_SELECTOR, '#dealBadgeSupportingText')
-                deal_tag = 'Yes'
-            except Exception:
-                deal_tag = 'No'
-
-            expiry_date = driver.find_element(By.CSS_SELECTOR, '#expiryDate_feature_div').get_attribute('innerText').strip().split(':')[-1].strip()
-            
-            return {
-                'mrp': mrp,
-                'sp': sp,
-                'seller': seller,
-                'deal tag': deal_tag,
-                'expiry date': expiry_date
-            }
-        except Exception:
-            sp_row = rows[0]
-            sp = float(sp_row.find_element(By.CLASS_NAME, 'a-offscreen').get_attribute('innerText').strip().strip('₹').replace(',', ''))
-
-            seller = driver.find_elements(By.CLASS_NAME, 'tabular-buybox-text')[-1].get_attribute('innerText').strip()
-            
-            try:
-                driver.find_element(By.CSS_SELECTOR, '#dealBadgeSupportingText')
-                deal_tag = 'Yes'
-            except Exception:
-                deal_tag = 'No'
-
-            expiry_date = driver.find_element(By.CSS_SELECTOR, '#expiryDate_feature_div').get_attribute('innerText').strip().split(':')[-1].strip()
-
-            return {
-                'mrp': 'NA',
-                'sp': sp,
-                'seller': seller,
-                'deal tag': deal_tag,
-                'expiry date': expiry_date
-            }
-        
+        basis_price = float(apex_desktop_div.find_element(By.CSS_SELECTOR, '.basisPrice .a-offscreen').get_attribute('innerText').replace(',', '').replace('.', '').replace('\n', '').strip().strip('₹'))
     except Exception:
-        try:
-            center_col = product_div.find_element(By.ID, 'centerCol')
-            sp = float(center_col.find_element(By.CLASS_NAME, 'a-price-whole').get_attribute('innerText').strip().strip('₹').replace(',', ''))
-            mrp = float(center_col.find_elements(By.CSS_SELECTOR, '#centerCol .a-text-price .a-offscreen')[-1].get_attribute('innerText').strip().strip('₹').replace(',', ''))
+        basis_price = None
 
-            seller = driver.find_elements(By.CLASS_NAME, 'tabular-buybox-text')[-1].get_attribute('innerText').strip()
+    basis_price = basis_price if basis_price else 'NA'
+    price_to_pay = price_to_pay if price_to_pay else 'NA'
 
-            try:
-                driver.find_element(By.CSS_SELECTOR, '#dealBadgeSupportingText')
-                deal_tag = 'Yes'
-            except Exception:
-                deal_tag = 'No'
+    try:
+        driver.find_element(By.CSS_SELECTOR, '#dealBadgeSupportingText')
+        deal_tag = 'Yes'
+    except Exception:
+        deal_tag = 'No'
 
-            expiry_date = driver.find_element(By.CSS_SELECTOR, '#expiryDate_feature_div').get_attribute('innerText').strip().split(':')[-1].strip()
-            
-            return {
-                'mrp': mrp,
-                'sp': sp,
-                'seller': seller,
-                'deal tag': deal_tag,
-                'expiry date': expiry_date
-            }
-        
-        except Exception:
-            raise ProductUnavailable(product_link)
+    try:
+        expiry_date = driver.find_element(By.CSS_SELECTOR, '#expiryDate_feature_div').get_attribute('innerText').strip().split(':')[-1].strip()
+    except Exception:
+        expiry_date = 'NA'
+
+    try:
+        seller = driver.find_element(By.CSS_SELECTOR, '#merchantInfoFeature_feature_div a').get_attribute('innerText').strip()
+    except Exception:
+        seller = 'NA'
+    
+    return {
+        'url': product_link,
+        'mrp': basis_price,
+        'sp': price_to_pay,
+        'seller': seller,
+        'deal tag': deal_tag,
+        'expiry date': expiry_date
+    }
