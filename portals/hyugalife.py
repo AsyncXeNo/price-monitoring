@@ -18,8 +18,6 @@ def get_product_information(driver:webdriver.Chrome, product_link: str) -> dict[
     except Exception:
         ProductUnavailable(product_link)
 
-    time.sleep(1)
-
     try:
         sp = WebDriverWait(driver, 5).until(
             EC.presence_of_element_located((By.XPATH, "//p[@class='font-bold text-4xl sm:text-6xl tracking-tight text-gray-100']"))

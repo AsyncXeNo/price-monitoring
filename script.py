@@ -147,6 +147,35 @@ if __name__ == '__main__':
             send_error_mail('1mg sheet data structure has been changed')
             exit()
 
+    logger.info('scraping nykaa data')
+
+    for index, entry in enumerate(nykaa_data):
+        try:
+            Id = entry['Id']
+            SKU = entry['SKU']
+            source_MRP = float(entry['source_MRP'])
+            source_SP = float(entry['source_SP'])
+            Url = str(entry['Url'])
+            try:
+                scraped = get_nykaa_product_information(driver, Url)
+                logger.debug(f'[{index + 1}/{len(nykaa_data)}] scraped nykaa product: {Url}')
+            except ProductUnavailable:
+                scraped = {'mrp': 'NA', 'sp': 'NA'}
+                logger.error(f'[{index + 1}/{len(nykaa_data)}] nykaa product not found: {Url}')
+            nykaa_output.append({
+                'Id': Id,
+                'SKU': SKU,
+                'source_MRP': source_MRP,
+                'scraped_MRP': scraped['mrp'],
+                'source_SP': source_SP,
+                'scraped_SP': scraped['sp'],
+                'Url': Url
+            })
+        except KeyError:
+            logger.error('Nykaa data structure has been changed')
+            send_error_mail('Nykaa sheet data structure has been changed')
+            exit()
+
     driver.quit()
 
     driver = get_chromedriver_without_proxy()
@@ -179,39 +208,8 @@ if __name__ == '__main__':
             send_error_mail('Hyugalife sheet data structure has been changed')
             exit()
 
-    
-
     # disp = Display()
     # disp.start()
-    
-    logger.info('scraping nykaa data')
-
-    for index, entry in enumerate(nykaa_data):
-        try:
-            Id = entry['Id']
-            SKU = entry['SKU']
-            source_MRP = float(entry['source_MRP'])
-            source_SP = float(entry['source_SP'])
-            Url = str(entry['Url'])
-            try:
-                scraped = get_nykaa_product_information(driver, Url)
-                logger.debug(f'[{index + 1}/{len(nykaa_data)}] scraped nykaa product: {Url}')
-            except ProductUnavailable:
-                scraped = {'mrp': 'NA', 'sp': 'NA'}
-                logger.error(f'[{index + 1}/{len(nykaa_data)}] nykaa product not found: {Url}')
-            nykaa_output.append({
-                'Id': Id,
-                'SKU': SKU,
-                'source_MRP': source_MRP,
-                'scraped_MRP': scraped['mrp'],
-                'source_SP': source_SP,
-                'scraped_SP': scraped['sp'],
-                'Url': Url
-            })
-        except KeyError:
-            logger.error('Nykaa data structure has been changed')
-            send_error_mail('Nykaa sheet data structure has been changed')
-            exit()
         
     logger.info('data scraping complete, compiling...')
         
