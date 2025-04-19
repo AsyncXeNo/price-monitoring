@@ -28,6 +28,7 @@ def _get_chrome_options_without_js():
 
     chrome_options.add_argument(rf"--user-data-dir={os.path.join(os.getcwd(), 'user_data_dir')}")
     chrome_options.add_argument("--profile-directory=Default")
+    # chrome_options.add_argument('--headless=new')
 
     chrome_options.add_experimental_option( "prefs",{'profile.managed_default_content_settings.javascript': 2})
 

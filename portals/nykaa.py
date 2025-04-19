@@ -14,6 +14,7 @@ from exceptions.product import ProductUnavailable
 
 def get_product_information(driver:webdriver.Chrome, product_link: str) -> dict[str, str]:
     # my_driver = get_chromedriver_without_proxy()
+    global COUNT
     
     try:
         driver.get(product_link)

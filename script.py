@@ -53,7 +53,7 @@ if __name__ == '__main__':
     driver = get_chromedriver_without_javascript()
 
     logger.info('scraping amazon data')
-    for index, entry in enumerate(amazon_data):
+    for index, entry in enumerate(amazon_data[:5]):
         try:
             ASIN = entry['ASIN']
             Product = entry['Product']
@@ -90,7 +90,7 @@ if __name__ == '__main__':
             continue
         
     logger.info('scraping flipkart data')
-    for index, entry in enumerate(flipcart_data):
+    for index, entry in enumerate(flipcart_data[:5]):
         try:
             Id = entry['Id']
             SKU = entry['SKU']
@@ -119,7 +119,7 @@ if __name__ == '__main__':
             exit()
 
     logger.info('scraping 1mg data')
-    for index, entry in enumerate(one_mg_data):
+    for index, entry in enumerate(one_mg_data[:5]):
         try:
             Id = entry['Id']
             SKU = entry['SKU']
@@ -149,7 +149,7 @@ if __name__ == '__main__':
 
     logger.info('scraping nykaa data')
 
-    for index, entry in enumerate(nykaa_data):
+    for index, entry in enumerate(nykaa_data[:5]):
         try:
             Id = entry['Id']
             SKU = entry['SKU']
@@ -181,7 +181,7 @@ if __name__ == '__main__':
     driver = get_chromedriver_without_proxy()
 
     logger.info('scraping hyugalife data')
-    for index, entry in enumerate(hyugalife_data):
+    for index, entry in enumerate(hyugalife_data[:5]):
         try:
             Id = entry['Id']
             SKU = entry['SKU']
